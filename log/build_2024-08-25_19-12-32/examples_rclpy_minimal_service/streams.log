@@ -1,0 +1,22 @@
+[1.376s] Invoking command in '/home/nakarin/RoboticsDev/src/examples/rclpy/services/minimal_service': PYTHONPATH=/home/nakarin/RoboticsDev/build/examples_rclpy_minimal_service/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_service build --build-base /home/nakarin/RoboticsDev/build/examples_rclpy_minimal_service/build install --record /home/nakarin/RoboticsDev/build/examples_rclpy_minimal_service/install.log --single-version-externally-managed install_data
+[1.844s] running egg_info
+[1.845s] writing ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/PKG-INFO
+[1.845s] writing dependency_links to ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/dependency_links.txt
+[1.846s] writing entry points to ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/entry_points.txt
+[1.846s] writing requirements to ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/requires.txt
+[1.846s] writing top-level names to ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/top_level.txt
+[1.852s] reading manifest file '../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/SOURCES.txt'
+[1.854s] writing manifest file '../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info/SOURCES.txt'
+[1.854s] running build
+[1.854s] running build_py
+[1.854s] running install
+[1.856s] running install_lib
+[1.858s] running install_data
+[1.861s] running install_egg_info
+[1.861s] removing '/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service-0.15.2-py3.10.egg-info' (and everything under it)
+[1.862s] Copying ../../../../../build/examples_rclpy_minimal_service/examples_rclpy_minimal_service.egg-info to /home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service/lib/python3.10/site-packages/examples_rclpy_minimal_service-0.15.2-py3.10.egg-info
+[1.863s] running install_scripts
+[1.900s] Installing service script to /home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service/lib/examples_rclpy_minimal_service
+[1.901s] Installing service_member_function script to /home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service/lib/examples_rclpy_minimal_service
+[1.901s] writing list of installed files to '/home/nakarin/RoboticsDev/build/examples_rclpy_minimal_service/install.log'
+[1.955s] Invoked command in '/home/nakarin/RoboticsDev/src/examples/rclpy/services/minimal_service' returned '0': PYTHONPATH=/home/nakarin/RoboticsDev/build/examples_rclpy_minimal_service/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_service build --build-base /home/nakarin/RoboticsDev/build/examples_rclpy_minimal_service/build install --record /home/nakarin/RoboticsDev/build/examples_rclpy_minimal_service/install.log --single-version-externally-managed install_data
