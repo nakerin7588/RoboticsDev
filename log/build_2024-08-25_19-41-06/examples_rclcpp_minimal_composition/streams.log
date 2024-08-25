@@ -1,0 +1,30 @@
+[0.045s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_composition': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_composition -- -j8 -l8
+[0.147s] [ 33%] Built target composition_nodes
+[0.173s] [ 55%] Built target composition_publisher
+[0.185s] [ 77%] Built target composition_subscriber
+[0.186s] [100%] Built target composition_composed
+[0.203s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_composition' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_composition -- -j8 -l8
+[0.263s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_composition': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_composition
+[0.286s] -- Install configuration: ""
+[0.286s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/library_path.sh
+[0.286s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/library_path.dsv
+[0.286s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/lib/libcomposition_nodes.so
+[0.286s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/lib/examples_rclcpp_minimal_composition/composition_publisher
+[0.286s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/lib/examples_rclcpp_minimal_composition/composition_subscriber
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/lib/examples_rclcpp_minimal_composition/composition_composed
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_minimal_composition
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_minimal_composition
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/ament_prefix_path.sh
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/ament_prefix_path.dsv
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/path.sh
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/environment/path.dsv
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/local_setup.bash
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/local_setup.sh
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/local_setup.zsh
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/local_setup.dsv
+[0.287s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/package.dsv
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/ament_index/resource_index/packages/examples_rclcpp_minimal_composition
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/cmake/examples_rclcpp_minimal_compositionConfig.cmake
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/cmake/examples_rclcpp_minimal_compositionConfig-version.cmake
+[0.287s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_composition/share/examples_rclcpp_minimal_composition/package.xml
+[0.307s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_composition' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_composition

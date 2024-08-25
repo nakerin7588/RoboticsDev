@@ -1,0 +1,64 @@
+[0.500s] Invoking command in '/home/nakarin/RoboticsDev/build/turtlesim_plus': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/turtlesim_plus -- -j8 -l8
+[0.579s] Built target ament_cmake_python_copy_turtlesim_plus
+[1.012s] running egg_info
+[1.014s] writing turtlesim_plus.egg-info/PKG-INFO
+[1.014s] writing dependency_links to turtlesim_plus.egg-info/dependency_links.txt
+[1.014s] writing top-level names to turtlesim_plus.egg-info/top_level.txt
+[1.018s] reading manifest file 'turtlesim_plus.egg-info/SOURCES.txt'
+[1.019s] writing manifest file 'turtlesim_plus.egg-info/SOURCES.txt'
+[1.069s] Built target ament_cmake_python_build_turtlesim_plus_egg
+[1.089s] Invoked command in '/home/nakarin/RoboticsDev/build/turtlesim_plus' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/turtlesim_plus -- -j8 -l8
+[1.126s] Invoking command in '/home/nakarin/RoboticsDev/build/turtlesim_plus': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/turtlesim_plus
+[1.138s] -- Install configuration: ""
+[1.138s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/environment/pythonpath.sh
+[1.139s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/environment/pythonpath.dsv
+[1.139s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus-1.0.0-py3.10.egg-info
+[1.139s] -- Installing: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus-1.0.0-py3.10.egg-info/dependency_links.txt
+[1.139s] -- Installing: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus-1.0.0-py3.10.egg-info/SOURCES.txt
+[1.139s] -- Installing: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus-1.0.0-py3.10.egg-info/PKG-INFO
+[1.140s] -- Installing: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus-1.0.0-py3.10.egg-info/top_level.txt
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/entity.py
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/ros2_plugins.py
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/__init__.py
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/rolling.png
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/dashing.png
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/bouncy.png
+[1.140s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/eloquent.png
+[1.141s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/crystal.png
+[1.141s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/galactic.png
+[1.141s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/humble.png
+[1.141s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/ardent.png
+[1.141s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/otto.png
+[1.141s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle/foxy.png
+[1.141s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/object
+[1.142s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/object/pizza.png
+[1.142s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/object/parcel.png
+[1.142s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/map
+[1.142s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/map/map.png
+[1.190s] Listing '/home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus'...
+[1.190s] Listing '/home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image'...
+[1.190s] Listing '/home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/map'...
+[1.190s] Listing '/home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/object'...
+[1.190s] Listing '/home/nakarin/RoboticsDev/install/turtlesim_plus/local/lib/python3.10/dist-packages/turtlesim_plus/image/turtle'...
+[1.200s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/lib/turtlesim_plus/turtlesim_plus_node.py
+[1.200s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/lib/turtlesim_plus/pizza_on_click.py
+[1.200s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus
+[1.201s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/ament_index/resource_index/package_run_dependencies/turtlesim_plus
+[1.201s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/ament_index/resource_index/parent_prefix_path/turtlesim_plus
+[1.201s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/environment/ament_prefix_path.sh
+[1.201s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/environment/ament_prefix_path.dsv
+[1.201s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/environment/path.sh
+[1.201s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/environment/path.dsv
+[1.201s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/local_setup.bash
+[1.201s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/local_setup.sh
+[1.202s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/local_setup.zsh
+[1.202s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/local_setup.dsv
+[1.202s] -- Installing: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/package.dsv
+[1.202s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/ament_index/resource_index/packages/turtlesim_plus
+[1.202s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/cmake/turtlesim_plusConfig.cmake
+[1.202s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/cmake/turtlesim_plusConfig-version.cmake
+[1.203s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtlesim_plus/share/turtlesim_plus/package.xml
+[1.207s] Invoked command in '/home/nakarin/RoboticsDev/build/turtlesim_plus' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/turtlesim_plus
