@@ -28,6 +28,10 @@ ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
   scripts/dummy_script.py
+  scripts/controller.py
+  scripts/crazy_turtle.py
+  scripts/crazy_pizza.py
+  scripts/odom_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
