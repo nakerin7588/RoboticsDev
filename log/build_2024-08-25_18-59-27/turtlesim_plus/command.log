@@ -1,0 +1,4 @@
+Invoking command in '/home/nakarin/RoboticsDev/build/turtlesim_plus': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/turtlesim_plus -- -j8 -l8
+Invoked command in '/home/nakarin/RoboticsDev/build/turtlesim_plus' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/turtlesim_plus -- -j8 -l8
+Invoking command in '/home/nakarin/RoboticsDev/build/turtlesim_plus': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/turtlesim_plus
+Invoked command in '/home/nakarin/RoboticsDev/build/turtlesim_plus' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/turtlesim_plus

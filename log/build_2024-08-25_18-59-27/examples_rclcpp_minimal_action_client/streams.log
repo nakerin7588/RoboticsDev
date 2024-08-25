@@ -1,0 +1,88 @@
+[0.035s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nakarin/RoboticsDev/src/examples/rclcpp/actions/minimal_action_client -DCMAKE_INSTALL_PREFIX=/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client
+[0.120s] -- The C compiler identification is GNU 11.4.0
+[0.246s] -- The CXX compiler identification is GNU 11.4.0
+[0.260s] -- Detecting C compiler ABI info
+[0.382s] -- Detecting C compiler ABI info - done
+[0.401s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.401s] -- Detecting C compile features
+[0.402s] -- Detecting C compile features - done
+[0.409s] -- Detecting CXX compiler ABI info
+[0.558s] -- Detecting CXX compiler ABI info - done
+[0.575s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.576s] -- Detecting CXX compile features
+[0.577s] -- Detecting CXX compile features - done
+[0.580s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.952s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.129s] -- Found example_interfaces: 0.9.3 (/opt/ros/humble/share/example_interfaces/cmake)
+[1.210s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.225s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.247s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.285s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.329s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.435s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[1.500s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.506s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.700s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.749s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.816s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.830s] -- Looking for pthread.h
+[1.973s] -- Looking for pthread.h - found
+[1.976s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.118s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.120s] -- Found Threads: TRUE  
+[2.245s] -- Found rclcpp_action: 16.0.10 (/opt/ros/humble/share/rclcpp_action/cmake)
+[2.283s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.691s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.700s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.700s] -- Configured cppcheck include dirs: 
+[2.700s] -- Configured cppcheck exclude dirs and/or files: 
+[2.702s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.702s] -- Configured cpplint exclude dirs and/or files: 
+[2.710s] -- Added test 'lint_cmake' to check CMake code style
+[2.711s] -- Added test 'uncrustify' to check C / C++ code style
+[2.712s] -- Configured uncrustify additional arguments: 
+[2.716s] -- Added test 'xmllint' to check XML markup files
+[2.723s] -- Configuring done
+[2.870s] -- Generating done
+[2.870s] -- Build files have been written to: /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client
+[2.935s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nakarin/RoboticsDev/src/examples/rclcpp/actions/minimal_action_client -DCMAKE_INSTALL_PREFIX=/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client
+[2.936s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client -- -j8 -l8
+[21.419s] [ 12%] [32mBuilding CXX object CMakeFiles/action_client_not_composable_with_feedback.dir/not_composable_with_feedback.cpp.o[0m
+[21.419s] [ 25%] [32mBuilding CXX object CMakeFiles/action_client_not_composable.dir/not_composable.cpp.o[0m
+[21.419s] [ 37%] [32mBuilding CXX object CMakeFiles/action_client_member_functions.dir/member_functions.cpp.o[0m
+[21.419s] [ 50%] [32mBuilding CXX object CMakeFiles/action_client_not_composable_with_cancel.dir/not_composable_with_cancel.cpp.o[0m
+[21.419s] [ 62%] [32m[1mLinking CXX executable action_client_not_composable[0m
+[21.419s] [ 62%] Built target action_client_not_composable
+[22.782s] [ 75%] [32m[1mLinking CXX executable action_client_member_functions[0m
+[23.746s] [ 75%] Built target action_client_member_functions
+[26.171s] [ 87%] [32m[1mLinking CXX executable action_client_not_composable_with_feedback[0m
+[26.340s] [100%] [32m[1mLinking CXX executable action_client_not_composable_with_cancel[0m
+[26.556s] [100%] Built target action_client_not_composable_with_feedback
+[26.828s] [100%] Built target action_client_not_composable_with_cancel
+[26.887s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client -- -j8 -l8
+[27.012s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client
+[27.025s] -- Install configuration: ""
+[27.026s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/lib/examples_rclcpp_minimal_action_client/action_client_member_functions
+[27.032s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/lib/examples_rclcpp_minimal_action_client/action_client_member_functions" to ""
+[27.032s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/lib/examples_rclcpp_minimal_action_client/action_client_not_composable
+[27.032s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/lib/examples_rclcpp_minimal_action_client/action_client_not_composable" to ""
+[27.032s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/lib/examples_rclcpp_minimal_action_client/action_client_not_composable_with_cancel
+[27.036s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/lib/examples_rclcpp_minimal_action_client/action_client_not_composable_with_cancel" to ""
+[27.036s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/lib/examples_rclcpp_minimal_action_client/action_client_not_composable_with_feedback
+[27.036s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/lib/examples_rclcpp_minimal_action_client/action_client_not_composable_with_feedback" to ""
+[27.036s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_minimal_action_client
+[27.036s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_minimal_action_client
+[27.036s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/environment/ament_prefix_path.sh
+[27.036s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/environment/ament_prefix_path.dsv
+[27.036s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/environment/path.sh
+[27.037s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/environment/path.dsv
+[27.037s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/local_setup.bash
+[27.037s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/local_setup.sh
+[27.037s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/local_setup.zsh
+[27.037s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/local_setup.dsv
+[27.037s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/package.dsv
+[27.038s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/ament_index/resource_index/packages/examples_rclcpp_minimal_action_client
+[27.040s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/cmake/examples_rclcpp_minimal_action_clientConfig.cmake
+[27.040s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/cmake/examples_rclcpp_minimal_action_clientConfig-version.cmake
+[27.040s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_action_client/share/examples_rclcpp_minimal_action_client/package.xml
+[27.054s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_action_client

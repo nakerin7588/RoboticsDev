@@ -1,0 +1,37 @@
+[1.666s] Invoking command in '/home/nakarin/RoboticsDev/src/examples/rclpy/guard_conditions': PYTHONPATH=/home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../build/examples_rclpy_guard_conditions build --build-base /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build install --record /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/install.log --single-version-externally-managed install_data
+[6.540s] running egg_info
+[6.544s] creating ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info
+[6.545s] writing ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/PKG-INFO
+[6.545s] writing dependency_links to ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/dependency_links.txt
+[6.545s] writing entry points to ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/entry_points.txt
+[6.545s] writing requirements to ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/requires.txt
+[6.545s] writing top-level names to ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/top_level.txt
+[6.545s] writing manifest file '../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/SOURCES.txt'
+[6.545s] reading manifest file '../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/SOURCES.txt'
+[6.545s] writing manifest file '../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/SOURCES.txt'
+[6.546s] running build
+[6.546s] running build_py
+[6.546s] creating /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build
+[6.546s] creating /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build/lib
+[6.546s] creating /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build/lib/examples_rclpy_guard_conditions
+[6.546s] copying examples_rclpy_guard_conditions/trigger_guard_condition.py -> /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build/lib/examples_rclpy_guard_conditions
+[6.546s] copying examples_rclpy_guard_conditions/__init__.py -> /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build/lib/examples_rclpy_guard_conditions
+[6.547s] running install
+[6.547s] running install_lib
+[6.547s] creating /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages/examples_rclpy_guard_conditions
+[6.547s] copying /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build/lib/examples_rclpy_guard_conditions/trigger_guard_condition.py -> /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages/examples_rclpy_guard_conditions
+[6.547s] copying /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build/lib/examples_rclpy_guard_conditions/__init__.py -> /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages/examples_rclpy_guard_conditions
+[6.547s] byte-compiling /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages/examples_rclpy_guard_conditions/trigger_guard_condition.py to trigger_guard_condition.cpython-310.pyc
+[6.547s] byte-compiling /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages/examples_rclpy_guard_conditions/__init__.py to __init__.cpython-310.pyc
+[6.548s] running install_data
+[6.548s] creating /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/share/ament_index
+[6.548s] creating /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/share/ament_index/resource_index
+[6.548s] creating /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/share/ament_index/resource_index/packages
+[6.548s] copying resource/examples_rclpy_guard_conditions -> /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/share/ament_index/resource_index/packages
+[6.549s] copying package.xml -> /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/share/examples_rclpy_guard_conditions
+[6.549s] running install_egg_info
+[6.549s] Copying ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info to /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages/examples_rclpy_guard_conditions-0.15.2-py3.10.egg-info
+[6.549s] running install_scripts
+[6.549s] Installing trigger_guard_condition script to /home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/examples_rclpy_guard_conditions
+[6.549s] writing list of installed files to '/home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/install.log'
+[6.560s] Invoked command in '/home/nakarin/RoboticsDev/src/examples/rclpy/guard_conditions' returned '0': PYTHONPATH=/home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../build/examples_rclpy_guard_conditions build --build-base /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/build install --record /home/nakarin/RoboticsDev/build/examples_rclpy_guard_conditions/install.log --single-version-externally-managed install_data

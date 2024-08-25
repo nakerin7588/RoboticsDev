@@ -1,0 +1,125 @@
+[0.065s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nakarin/RoboticsDev/src/examples/rclcpp/topics/minimal_subscriber -DCMAKE_INSTALL_PREFIX=/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber
+[0.190s] -- The C compiler identification is GNU 11.4.0
+[0.335s] -- The CXX compiler identification is GNU 11.4.0
+[0.364s] -- Detecting C compiler ABI info
+[0.528s] -- Detecting C compiler ABI info - done
+[0.566s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.566s] -- Detecting C compile features
+[0.566s] -- Detecting C compile features - done
+[0.579s] -- Detecting CXX compiler ABI info
+[0.810s] -- Detecting CXX compiler ABI info - done
+[0.859s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.860s] -- Detecting CXX compile features
+[0.862s] -- Detecting CXX compile features - done
+[0.871s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.337s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.614s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[1.738s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.749s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.760s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.781s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.811s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.929s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.934s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.108s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.155s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.229s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.242s] -- Looking for pthread.h
+[2.424s] -- Looking for pthread.h - found
+[2.424s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.616s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.616s] -- Found Threads: TRUE  
+[2.737s] -- Found rclcpp_components: 16.0.10 (/opt/ros/humble/share/rclcpp_components/cmake)
+[2.837s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.969s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.971s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.972s] -- Configured cppcheck include dirs: 
+[2.972s] -- Configured cppcheck exclude dirs and/or files: 
+[2.974s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.976s] -- Configured cpplint exclude dirs and/or files: 
+[2.976s] -- Added test 'lint_cmake' to check CMake code style
+[2.978s] -- Added test 'uncrustify' to check C / C++ code style
+[2.980s] -- Configured uncrustify additional arguments: 
+[2.980s] -- Added test 'xmllint' to check XML markup files
+[2.982s] -- Configuring done
+[3.052s] -- Generating done
+[3.055s] -- Build files have been written to: /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber
+[3.556s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nakarin/RoboticsDev/src/examples/rclcpp/topics/minimal_subscriber -DCMAKE_INSTALL_PREFIX=/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber
+[3.556s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber -- -j8 -l8
+[3.700s] [  4%] [32mBuilding CXX object CMakeFiles/subscriber_lambda.dir/lambda.cpp.o[0m
+[17.234s] [  8%] [32m[1mLinking CXX executable subscriber_lambda[0m
+[17.627s] [  8%] Built target subscriber_lambda
+[17.645s] [ 12%] [32mBuilding CXX object CMakeFiles/wait_set_subscriber_library.dir/wait_set_subscriber.cpp.o[0m
+[26.654s] [ 16%] [32mBuilding CXX object CMakeFiles/wait_set_subscriber_library.dir/static_wait_set_subscriber.cpp.o[0m
+[35.664s] [ 20%] [32mBuilding CXX object CMakeFiles/wait_set_subscriber_library.dir/time_triggered_wait_set_subscriber.cpp.o[0m
+[37.675s] [ 25%] [32mBuilding CXX object CMakeFiles/wait_set_subscriber.dir/rclcpp_components/node_main_wait_set_subscriber.cpp.o[0m
+[38.687s] [ 29%] [32mBuilding CXX object CMakeFiles/subscriber_content_filtering.dir/content_filtering.cpp.o[0m
+[39.720s] [ 33%] [32mBuilding CXX object CMakeFiles/subscriber_not_composable.dir/not_composable.cpp.o[0m
+[40.740s] [ 37%] [32mBuilding CXX object CMakeFiles/subscriber_member_function_with_unique_network_flow_endpoints.dir/member_function_with_unique_network_flow_endpoints.cpp.o[0m
+[41.811s] [ 41%] [32mBuilding CXX object CMakeFiles/subscriber_member_function_with_type_adapter.dir/member_function_with_type_adapter.cpp.o[0m
+[42.276s] [ 45%] [32m[1mLinking CXX executable wait_set_subscriber[0m
+[42.503s] [ 45%] Built target wait_set_subscriber
+[50.213s] [ 50%] [32m[1mLinking CXX shared library libwait_set_subscriber_library.so[0m
+[52.200s] [ 50%] Built target wait_set_subscriber_library
+[52.744s] [ 54%] [32m[1mLinking CXX executable subscriber_content_filtering[0m
+[53.489s] [ 58%] [32m[1mLinking CXX executable subscriber_not_composable[0m
+[53.540s] [ 58%] Built target subscriber_content_filtering
+[53.693s] [ 62%] [32m[1mLinking CXX executable subscriber_member_function_with_unique_network_flow_endpoints[0m
+[54.157s] [ 62%] Built target subscriber_not_composable
+[54.391s] [ 62%] Built target subscriber_member_function_with_unique_network_flow_endpoints
+[57.164s] [ 66%] [32m[1mLinking CXX executable subscriber_member_function_with_type_adapter[0m
+[57.723s] [ 66%] Built target subscriber_member_function_with_type_adapter
+[57.742s] [ 75%] [32mBuilding CXX object CMakeFiles/time_triggered_wait_set_subscriber.dir/rclcpp_components/node_main_time_triggered_wait_set_subscriber.cpp.o[0m
+[57.742s] [ 75%] [32mBuilding CXX object CMakeFiles/subscriber_member_function_with_topic_statistics.dir/member_function_with_topic_statistics.cpp.o[0m
+[57.742s] [ 79%] [32mBuilding CXX object CMakeFiles/static_wait_set_subscriber.dir/rclcpp_components/node_main_static_wait_set_subscriber.cpp.o[0m
+[62.877s] [ 83%] [32m[1mLinking CXX executable time_triggered_wait_set_subscriber[0m
+[62.892s] [ 87%] [32m[1mLinking CXX executable static_wait_set_subscriber[0m
+[63.162s] [ 87%] Built target static_wait_set_subscriber
+[63.166s] [ 87%] Built target time_triggered_wait_set_subscriber
+[70.574s] [ 91%] [32m[1mLinking CXX executable subscriber_member_function_with_topic_statistics[0m
+[71.102s] [ 91%] Built target subscriber_member_function_with_topic_statistics
+[71.122s] [ 95%] [32mBuilding CXX object CMakeFiles/subscriber_member_function.dir/member_function.cpp.o[0m
+[81.495s] [100%] [32m[1mLinking CXX executable subscriber_member_function[0m
+[81.952s] [100%] Built target subscriber_member_function
+[81.965s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber -- -j8 -l8
+[82.018s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber
+[82.025s] -- Install configuration: ""
+[82.025s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/wait_set_subscriber
+[82.025s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/wait_set_subscriber" to ""
+[82.025s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/static_wait_set_subscriber
+[82.026s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/static_wait_set_subscriber" to ""
+[82.026s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/time_triggered_wait_set_subscriber
+[82.026s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/time_triggered_wait_set_subscriber" to ""
+[82.026s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/libwait_set_subscriber_library.so
+[82.032s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/libwait_set_subscriber_library.so" to ""
+[82.033s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_lambda
+[82.036s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_lambda" to ""
+[82.036s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function
+[82.039s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function" to ""
+[82.039s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_topic_statistics
+[82.041s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_topic_statistics" to ""
+[82.041s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_type_adapter
+[82.045s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_type_adapter" to ""
+[82.045s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_unique_network_flow_endpoints
+[82.047s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_unique_network_flow_endpoints" to ""
+[82.047s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_not_composable
+[82.050s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_not_composable" to ""
+[82.050s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_content_filtering
+[82.053s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_content_filtering" to ""
+[82.053s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_minimal_subscriber
+[82.053s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_minimal_subscriber
+[82.053s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/environment/ament_prefix_path.sh
+[82.053s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/environment/ament_prefix_path.dsv
+[82.053s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/environment/path.sh
+[82.053s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/environment/path.dsv
+[82.054s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/local_setup.bash
+[82.054s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/local_setup.sh
+[82.054s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/local_setup.zsh
+[82.054s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/local_setup.dsv
+[82.054s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/package.dsv
+[82.054s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/ament_index/resource_index/packages/examples_rclcpp_minimal_subscriber
+[82.055s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/ament_index/resource_index/rclcpp_components/examples_rclcpp_minimal_subscriber
+[82.055s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/cmake/examples_rclcpp_minimal_subscriberConfig.cmake
+[82.055s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/cmake/examples_rclcpp_minimal_subscriberConfig-version.cmake
+[82.055s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/package.xml
+[82.058s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_subscriber

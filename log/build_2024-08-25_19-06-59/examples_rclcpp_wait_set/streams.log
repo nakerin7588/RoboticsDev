@@ -1,0 +1,57 @@
+[0.068s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set -- -j8 -l8
+[0.612s] [35m[1mConsolidate compiler generated dependencies of target listener[0m
+[0.613s] [35m[1mConsolidate compiler generated dependencies of target talker[0m
+[0.613s] [35m[1mConsolidate compiler generated dependencies of target wait_set_talker[0m
+[0.613s] [35m[1mConsolidate compiler generated dependencies of target wait_set[0m
+[0.613s] [35m[1mConsolidate compiler generated dependencies of target thread_safe_wait_set[0m
+[0.613s] [35m[1mConsolidate compiler generated dependencies of target wait_set_listener[0m
+[0.613s] [35m[1mConsolidate compiler generated dependencies of target static_wait_set[0m
+[0.613s] [35m[1mConsolidate compiler generated dependencies of target wait_set_topics_and_timer[0m
+[0.613s] [  8%] Built target wait_set_talker
+[0.613s] [ 20%] Built target thread_safe_wait_set
+[0.613s] [ 25%] Built target talker
+[0.613s] [ 33%] Built target static_wait_set
+[0.613s] [ 41%] Built target wait_set
+[0.613s] [ 50%] Built target wait_set_listener
+[0.613s] [ 58%] Built target listener
+[0.614s] [ 66%] Built target wait_set_topics_and_timer
+[0.614s] [35m[1mConsolidate compiler generated dependencies of target executor_random_order[0m
+[0.614s] [35m[1mConsolidate compiler generated dependencies of target wait_set_topics_with_different_rates[0m
+[0.614s] [35m[1mConsolidate compiler generated dependencies of target wait_set_random_order[0m
+[0.614s] [35m[1mConsolidate compiler generated dependencies of target wait_set_composed[0m
+[0.614s] [ 75%] Built target executor_random_order
+[0.614s] [ 83%] Built target wait_set_random_order
+[0.614s] [ 91%] Built target wait_set_topics_with_different_rates
+[0.614s] [100%] Built target wait_set_composed
+[1.096s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set -- -j8 -l8
+[1.167s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set
+[1.183s] -- Install configuration: ""
+[1.183s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_talker
+[1.183s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_listener
+[1.183s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/libtalker.so
+[1.183s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/liblistener.so
+[1.183s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set
+[1.183s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/static_wait_set
+[1.183s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/thread_safe_wait_set
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_topics_and_timer
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_random_order
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/executor_random_order
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_topics_with_different_rates
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_composed
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_wait_set
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_wait_set
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/environment/ament_prefix_path.sh
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/environment/ament_prefix_path.dsv
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/environment/path.sh
+[1.184s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/environment/path.dsv
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/local_setup.bash
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/local_setup.sh
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/local_setup.zsh
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/local_setup.dsv
+[1.185s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/package.dsv
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/ament_index/resource_index/packages/examples_rclcpp_wait_set
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/ament_index/resource_index/rclcpp_components/examples_rclcpp_wait_set
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/cmake/examples_rclcpp_wait_setConfig.cmake
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/cmake/examples_rclcpp_wait_setConfig-version.cmake
+[1.185s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/package.xml
+[1.199s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set

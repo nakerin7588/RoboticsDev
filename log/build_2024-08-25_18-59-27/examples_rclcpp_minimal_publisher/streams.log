@@ -1,0 +1,96 @@
+[0.033s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nakarin/RoboticsDev/src/examples/rclcpp/topics/minimal_publisher -DCMAKE_INSTALL_PREFIX=/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher
+[2.230s] -- The C compiler identification is GNU 11.4.0
+[2.231s] -- The CXX compiler identification is GNU 11.4.0
+[2.231s] -- Detecting C compiler ABI info
+[2.231s] -- Detecting C compiler ABI info - done
+[2.231s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.231s] -- Detecting C compile features
+[2.231s] -- Detecting C compile features - done
+[2.231s] -- Detecting CXX compiler ABI info
+[2.231s] -- Detecting CXX compiler ABI info - done
+[2.231s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.231s] -- Detecting CXX compile features
+[2.232s] -- Detecting CXX compile features - done
+[2.233s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.233s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.233s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[2.233s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.233s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.234s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.234s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.234s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.234s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.234s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.234s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.234s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.234s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.235s] -- Looking for pthread.h
+[2.235s] -- Looking for pthread.h - found
+[2.235s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.235s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.235s] -- Found Threads: TRUE  
+[2.235s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.235s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.235s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.235s] -- Configured cppcheck include dirs: 
+[2.235s] -- Configured cppcheck exclude dirs and/or files: 
+[2.236s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.236s] -- Configured cpplint exclude dirs and/or files: 
+[2.237s] -- Added test 'lint_cmake' to check CMake code style
+[2.237s] -- Added test 'uncrustify' to check C / C++ code style
+[2.238s] -- Configured uncrustify additional arguments: 
+[2.238s] -- Added test 'xmllint' to check XML markup files
+[2.238s] -- Configuring done
+[2.238s] -- Generating done
+[2.238s] -- Build files have been written to: /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher
+[2.248s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nakarin/RoboticsDev/src/examples/rclcpp/topics/minimal_publisher -DCMAKE_INSTALL_PREFIX=/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher
+[2.251s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher -- -j8 -l8
+[2.358s] [  8%] [32mBuilding CXX object CMakeFiles/publisher_member_function_with_unique_network_flow_endpoints.dir/member_function_with_unique_network_flow_endpoints.cpp.o[0m
+[2.366s] [ 16%] [32mBuilding CXX object CMakeFiles/publisher_not_composable.dir/not_composable.cpp.o[0m
+[2.375s] [ 25%] [32mBuilding CXX object CMakeFiles/publisher_lambda.dir/lambda.cpp.o[0m
+[2.382s] [ 33%] [32mBuilding CXX object CMakeFiles/publisher_member_function_with_type_adapter.dir/member_function_with_type_adapter.cpp.o[0m
+[2.393s] [ 41%] [32mBuilding CXX object CMakeFiles/publisher_member_function.dir/member_function.cpp.o[0m
+[2.411s] [ 50%] [32mBuilding CXX object CMakeFiles/publisher_wait_for_all_acked.dir/member_function_with_wait_for_all_acked.cpp.o[0m
+[22.418s] [ 58%] [32m[1mLinking CXX executable publisher_not_composable[0m
+[23.059s] [ 58%] Built target publisher_not_composable
+[24.526s] [ 66%] [32m[1mLinking CXX executable publisher_member_function_with_unique_network_flow_endpoints[0m
+[24.781s] [ 75%] [32m[1mLinking CXX executable publisher_wait_for_all_acked[0m
+[25.355s] [ 75%] Built target publisher_member_function_with_unique_network_flow_endpoints
+[25.571s] [ 75%] Built target publisher_wait_for_all_acked
+[25.844s] [ 83%] [32m[1mLinking CXX executable publisher_member_function[0m
+[25.960s] [ 91%] [32m[1mLinking CXX executable publisher_lambda[0m
+[26.271s] [ 91%] Built target publisher_member_function
+[26.404s] [100%] [32m[1mLinking CXX executable publisher_member_function_with_type_adapter[0m
+[26.411s] [100%] Built target publisher_lambda
+[26.894s] [100%] Built target publisher_member_function_with_type_adapter
+[26.936s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher -- -j8 -l8
+[27.016s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher
+[29.524s] -- Install configuration: ""
+[29.524s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_lambda
+[29.524s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_lambda" to ""
+[29.526s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_member_function
+[29.526s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_member_function" to ""
+[29.526s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_member_function_with_type_adapter
+[29.526s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_member_function_with_type_adapter" to ""
+[29.526s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_member_function_with_unique_network_flow_endpoints
+[29.526s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_member_function_with_unique_network_flow_endpoints" to ""
+[29.526s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_wait_for_all_acked
+[29.527s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_wait_for_all_acked" to ""
+[29.527s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_not_composable
+[29.527s] -- Set runtime path of "/home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/lib/examples_rclcpp_minimal_publisher/publisher_not_composable" to ""
+[29.527s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_minimal_publisher
+[29.527s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_minimal_publisher
+[29.527s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/environment/ament_prefix_path.sh
+[29.527s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/environment/ament_prefix_path.dsv
+[29.527s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/environment/path.sh
+[29.532s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/environment/path.dsv
+[29.532s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/local_setup.bash
+[29.532s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/local_setup.sh
+[29.532s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/local_setup.zsh
+[29.532s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/local_setup.dsv
+[29.533s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/package.dsv
+[29.533s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/ament_index/resource_index/packages/examples_rclcpp_minimal_publisher
+[29.533s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/cmake/examples_rclcpp_minimal_publisherConfig.cmake
+[29.533s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/cmake/examples_rclcpp_minimal_publisherConfig-version.cmake
+[29.533s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_minimal_publisher/share/examples_rclcpp_minimal_publisher/package.xml
+[29.548s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_minimal_publisher
