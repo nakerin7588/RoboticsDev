@@ -1,0 +1,45 @@
+[0.139s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set -- -j8 -l8
+[0.546s] [  8%] Built target listener
+[0.546s] [ 16%] Built target talker
+[0.546s] [ 25%] Built target wait_set_topics_and_timer
+[0.546s] [ 37%] Built target wait_set_listener
+[0.546s] [ 41%] Built target wait_set_talker
+[0.546s] [ 50%] Built target thread_safe_wait_set
+[0.546s] [ 58%] Built target static_wait_set
+[0.546s] [ 66%] Built target wait_set
+[0.547s] [ 75%] Built target executor_random_order
+[0.547s] [ 83%] Built target wait_set_topics_with_different_rates
+[0.547s] [ 91%] Built target wait_set_random_order
+[0.547s] [100%] Built target wait_set_composed
+[1.503s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set -- -j8 -l8
+[1.640s] Invoking command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set
+[1.655s] -- Install configuration: ""
+[1.656s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_talker
+[1.657s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_listener
+[1.657s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/libtalker.so
+[1.658s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/liblistener.so
+[1.658s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set
+[1.658s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/static_wait_set
+[1.658s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/thread_safe_wait_set
+[1.661s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_topics_and_timer
+[1.661s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_random_order
+[1.661s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/executor_random_order
+[1.662s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_topics_with_different_rates
+[1.662s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/lib/examples_rclcpp_wait_set/wait_set_composed
+[1.662s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_wait_set
+[1.662s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_wait_set
+[1.662s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/environment/ament_prefix_path.sh
+[1.665s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/environment/ament_prefix_path.dsv
+[1.666s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/environment/path.sh
+[1.666s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/environment/path.dsv
+[1.666s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/local_setup.bash
+[1.666s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/local_setup.sh
+[1.666s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/local_setup.zsh
+[1.666s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/local_setup.dsv
+[1.666s] -- Installing: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/package.dsv
+[1.667s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/ament_index/resource_index/packages/examples_rclcpp_wait_set
+[1.667s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/ament_index/resource_index/rclcpp_components/examples_rclcpp_wait_set
+[1.667s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/cmake/examples_rclcpp_wait_setConfig.cmake
+[1.667s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/cmake/examples_rclcpp_wait_setConfig-version.cmake
+[1.667s] -- Up-to-date: /home/nakarin/RoboticsDev/install/examples_rclcpp_wait_set/share/examples_rclcpp_wait_set/package.xml
+[2.188s] Invoked command in '/home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/examples_rclcpp_wait_set

@@ -1,0 +1,24 @@
+[3.249s] Invoking command in '/home/nakarin/RoboticsDev/src/examples/rclpy/actions/minimal_action_client': PYTHONPATH=/home/nakarin/RoboticsDev/build/examples_rclpy_minimal_action_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_action_client build --build-base /home/nakarin/RoboticsDev/build/examples_rclpy_minimal_action_client/build install --record /home/nakarin/RoboticsDev/build/examples_rclpy_minimal_action_client/install.log --single-version-externally-managed install_data
+[3.790s] running egg_info
+[3.792s] writing ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/PKG-INFO
+[3.792s] writing dependency_links to ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/dependency_links.txt
+[3.792s] writing entry points to ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/entry_points.txt
+[3.793s] writing requirements to ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/requires.txt
+[3.793s] writing top-level names to ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/top_level.txt
+[3.798s] reading manifest file '../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/SOURCES.txt'
+[3.800s] writing manifest file '../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info/SOURCES.txt'
+[3.800s] running build
+[3.800s] running build_py
+[3.801s] running install
+[3.807s] running install_lib
+[3.807s] running install_data
+[3.807s] running install_egg_info
+[3.811s] removing '/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client-0.15.2-py3.10.egg-info' (and everything under it)
+[3.811s] Copying ../../../../../build/examples_rclpy_minimal_action_client/examples_rclpy_minimal_action_client.egg-info to /home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages/examples_rclpy_minimal_action_client-0.15.2-py3.10.egg-info
+[3.813s] running install_scripts
+[3.868s] Installing client script to /home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client/lib/examples_rclpy_minimal_action_client
+[3.869s] Installing client_asyncio script to /home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client/lib/examples_rclpy_minimal_action_client
+[3.869s] Installing client_cancel script to /home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client/lib/examples_rclpy_minimal_action_client
+[3.869s] Installing client_not_composable script to /home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client/lib/examples_rclpy_minimal_action_client
+[3.870s] writing list of installed files to '/home/nakarin/RoboticsDev/build/examples_rclpy_minimal_action_client/install.log'
+[4.667s] Invoked command in '/home/nakarin/RoboticsDev/src/examples/rclpy/actions/minimal_action_client' returned '0': PYTHONPATH=/home/nakarin/RoboticsDev/build/examples_rclpy_minimal_action_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../../build/examples_rclpy_minimal_action_client build --build-base /home/nakarin/RoboticsDev/build/examples_rclpy_minimal_action_client/build install --record /home/nakarin/RoboticsDev/build/examples_rclpy_minimal_action_client/install.log --single-version-externally-managed install_data

@@ -7,6 +7,10 @@
 /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup/__init__.py
 /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup/dummy_module.py
 /home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/dummy_script.py
+/home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/controller.py
+/home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/crazy_turtle.py
+/home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/crazy_pizza.py
+/home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/odom_publisher.py
 /home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/cpp_node_test
 /home/nakarin/RoboticsDev/install/turtle_bringup/share/ament_index/resource_index/package_run_dependencies/turtle_bringup
 /home/nakarin/RoboticsDev/install/turtle_bringup/share/ament_index/resource_index/parent_prefix_path/turtle_bringup

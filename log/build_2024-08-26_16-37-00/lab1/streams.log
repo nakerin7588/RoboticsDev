@@ -1,0 +1,44 @@
+[0.501s] Invoking command in '/home/nakarin/RoboticsDev/build/lab1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/lab1 -- -j8 -l8
+[0.635s] [100%] Built target cpp_node_test
+[0.655s] [100%] Built target ament_cmake_python_copy_lab1
+[1.263s] running egg_info
+[1.263s] writing lab1.egg-info/PKG-INFO
+[1.267s] writing dependency_links to lab1.egg-info/dependency_links.txt
+[1.267s] writing top-level names to lab1.egg-info/top_level.txt
+[1.267s] reading manifest file 'lab1.egg-info/SOURCES.txt'
+[1.268s] writing manifest file 'lab1.egg-info/SOURCES.txt'
+[1.355s] [100%] Built target ament_cmake_python_build_lab1_egg
+[1.437s] Invoked command in '/home/nakarin/RoboticsDev/build/lab1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/lab1 -- -j8 -l8
+[1.497s] Invoking command in '/home/nakarin/RoboticsDev/build/lab1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/lab1
+[1.521s] -- Install configuration: ""
+[1.521s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/environment/pythonpath.sh
+[1.522s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/environment/pythonpath.dsv
+[1.522s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1-0.0.0-py3.10.egg-info
+[1.523s] -- Installing: /home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.524s] -- Installing: /home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.529s] -- Installing: /home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1-0.0.0-py3.10.egg-info/PKG-INFO
+[1.529s] -- Installing: /home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1-0.0.0-py3.10.egg-info/top_level.txt
+[1.530s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1
+[1.530s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1/__init__.py
+[1.530s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1/dummy_module.py
+[1.639s] Listing '/home/nakarin/RoboticsDev/install/lab1/local/lib/python3.10/dist-packages/lab1'...
+[1.658s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/lib/lab1/dummy_script.py
+[1.659s] -- Installing: /home/nakarin/RoboticsDev/install/lab1/lib/lab1/noise_generator_script.py
+[1.659s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/lib/lab1/cpp_node_test
+[1.660s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1
+[1.660s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/ament_index/resource_index/package_run_dependencies/lab1
+[1.661s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/ament_index/resource_index/parent_prefix_path/lab1
+[1.661s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/environment/ament_prefix_path.sh
+[1.661s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/environment/ament_prefix_path.dsv
+[1.661s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/environment/path.sh
+[1.664s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/environment/path.dsv
+[1.665s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/local_setup.bash
+[1.666s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/local_setup.sh
+[1.666s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/local_setup.zsh
+[1.667s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/local_setup.dsv
+[1.667s] -- Installing: /home/nakarin/RoboticsDev/install/lab1/share/lab1/package.dsv
+[1.667s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/ament_index/resource_index/packages/lab1
+[1.667s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/cmake/lab1Config.cmake
+[1.670s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/cmake/lab1Config-version.cmake
+[1.670s] -- Up-to-date: /home/nakarin/RoboticsDev/install/lab1/share/lab1/package.xml
+[1.675s] Invoked command in '/home/nakarin/RoboticsDev/build/lab1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/lab1

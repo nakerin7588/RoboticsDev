@@ -67,7 +67,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/turtle_bringup" TYPE PROGRAM FILES "/home/nakarin/RoboticsDev/src/turtle_bringup/scripts/dummy_script.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/turtle_bringup" TYPE PROGRAM FILES
+    "/home/nakarin/RoboticsDev/src/turtle_bringup/scripts/dummy_script.py"
+    "/home/nakarin/RoboticsDev/src/turtle_bringup/scripts/controller.py"
+    "/home/nakarin/RoboticsDev/src/turtle_bringup/scripts/crazy_turtle.py"
+    "/home/nakarin/RoboticsDev/src/turtle_bringup/scripts/crazy_pizza.py"
+    "/home/nakarin/RoboticsDev/src/turtle_bringup/scripts/odom_publisher.py"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

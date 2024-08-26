@@ -1,0 +1,26 @@
+[1.391s] Invoking command in '/home/nakarin/RoboticsDev/src/examples/rclpy/executors': PYTHONPATH=/home/nakarin/RoboticsDev/build/examples_rclpy_executors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../build/examples_rclpy_executors build --build-base /home/nakarin/RoboticsDev/build/examples_rclpy_executors/build install --record /home/nakarin/RoboticsDev/build/examples_rclpy_executors/install.log --single-version-externally-managed install_data
+[1.666s] running egg_info
+[1.668s] writing ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/PKG-INFO
+[1.668s] writing dependency_links to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/dependency_links.txt
+[1.668s] writing entry points to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/entry_points.txt
+[1.668s] writing requirements to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/requires.txt
+[1.668s] writing top-level names to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/top_level.txt
+[1.672s] reading manifest file '../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/SOURCES.txt'
+[1.673s] writing manifest file '../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/SOURCES.txt'
+[1.673s] running build
+[1.674s] running build_py
+[1.674s] running install
+[1.675s] running install_lib
+[1.678s] running install_data
+[1.678s] running install_egg_info
+[1.680s] removing '/home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors-0.15.2-py3.10.egg-info' (and everything under it)
+[1.681s] Copying ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info to /home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors-0.15.2-py3.10.egg-info
+[1.682s] running install_scripts
+[1.709s] Installing callback_group script to /home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[1.709s] Installing composed script to /home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[1.709s] Installing custom_callback_group script to /home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[1.710s] Installing custom_executor script to /home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[1.710s] Installing listener script to /home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[1.710s] Installing talker script to /home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[1.710s] writing list of installed files to '/home/nakarin/RoboticsDev/build/examples_rclpy_executors/install.log'
+[2.012s] Invoked command in '/home/nakarin/RoboticsDev/src/examples/rclpy/executors' returned '0': PYTHONPATH=/home/nakarin/RoboticsDev/build/examples_rclpy_executors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nakarin/RoboticsDev/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../../build/examples_rclpy_executors build --build-base /home/nakarin/RoboticsDev/build/examples_rclpy_executors/build install --record /home/nakarin/RoboticsDev/build/examples_rclpy_executors/install.log --single-version-externally-managed install_data

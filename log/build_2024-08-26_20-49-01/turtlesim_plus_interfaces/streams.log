@@ -1,0 +1,23 @@
+[0.028s] Invoking command in '/home/nakarin/RoboticsDev/build/turtlesim_plus_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/turtlesim_plus_interfaces -- -j8 -l8
+[0.106s] [  1%] Built target turtlesim_plus_interfaces__cpp
+[0.106s] [ 12%] Built target turtlesim_plus_interfaces__rosidl_generator_c
+[0.143s] [ 12%] Built target ament_cmake_python_copy_turtlesim_plus_interfaces
+[0.163s] [ 23%] Built target turtlesim_plus_interfaces__rosidl_typesupport_c
+[0.174s] [ 34%] Built target turtlesim_plus_interfaces__rosidl_typesupport_introspection_c
+[0.174s] [ 45%] Built target turtlesim_plus_interfaces__rosidl_typesupport_fastrtps_cpp
+[0.176s] [ 61%] Built target turtlesim_plus_interfaces__rosidl_typesupport_cpp
+[0.177s] [ 67%] Built target turtlesim_plus_interfaces__rosidl_typesupport_introspection_cpp
+[0.181s] [ 78%] Built target turtlesim_plus_interfaces__rosidl_typesupport_fastrtps_c
+[0.216s] [ 78%] Built target turtlesim_plus_interfaces
+[0.248s] [ 80%] Built target turtlesim_plus_interfaces__py
+[0.285s] [ 89%] Built target turtlesim_plus_interfaces__rosidl_generator_py
+[0.330s] [ 92%] Built target turtlesim_plus_interfaces__rosidl_typesupport_c__pyext
+[0.336s] [ 96%] Built target turtlesim_plus_interfaces__rosidl_typesupport_introspection_c__pyext
+[0.343s] [100%] Built target turtlesim_plus_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[0.575s] running egg_info
+[0.576s] writing turtlesim_plus_interfaces.egg-info/PKG-INFO
+[0.576s] writing dependency_links to turtlesim_plus_interfaces.egg-info/dependency_links.txt
+[0.576s] writing top-level names to turtlesim_plus_interfaces.egg-info/top_level.txt
+[0.579s] reading manifest file 'turtlesim_plus_interfaces.egg-info/SOURCES.txt'
+[0.580s] writing manifest file 'turtlesim_plus_interfaces.egg-info/SOURCES.txt'
+[0.607s] [100%] Built target ament_cmake_python_build_turtlesim_plus_interfaces_egg

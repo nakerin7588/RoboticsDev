@@ -1,0 +1,43 @@
+[0.058s] Invoking command in '/home/nakarin/RoboticsDev/build/turtle_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/turtle_bringup -- -j8 -l8
+[0.209s] [100%] Built target cpp_node_test
+[0.224s] [100%] Built target ament_cmake_python_copy_turtle_bringup
+[0.991s] running egg_info
+[0.992s] writing turtle_bringup.egg-info/PKG-INFO
+[0.993s] writing dependency_links to turtle_bringup.egg-info/dependency_links.txt
+[0.995s] writing top-level names to turtle_bringup.egg-info/top_level.txt
+[0.996s] reading manifest file 'turtle_bringup.egg-info/SOURCES.txt'
+[0.997s] writing manifest file 'turtle_bringup.egg-info/SOURCES.txt'
+[1.057s] [100%] Built target ament_cmake_python_build_turtle_bringup_egg
+[1.075s] Invoked command in '/home/nakarin/RoboticsDev/build/turtle_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/turtle_bringup -- -j8 -l8
+[1.120s] Invoking command in '/home/nakarin/RoboticsDev/build/turtle_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/turtle_bringup
+[1.130s] -- Install configuration: ""
+[1.131s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/environment/pythonpath.sh
+[1.131s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/environment/pythonpath.dsv
+[1.131s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup-0.0.0-py3.10.egg-info
+[1.131s] -- Installing: /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.131s] -- Installing: /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.131s] -- Installing: /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup-0.0.0-py3.10.egg-info/PKG-INFO
+[1.132s] -- Installing: /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup-0.0.0-py3.10.egg-info/top_level.txt
+[1.132s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup
+[1.132s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup/__init__.py
+[1.132s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup/dummy_module.py
+[1.200s] Listing '/home/nakarin/RoboticsDev/install/turtle_bringup/local/lib/python3.10/dist-packages/turtle_bringup'...
+[1.211s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/dummy_script.py
+[1.211s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/cpp_node_test
+[1.211s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup
+[1.211s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/ament_index/resource_index/package_run_dependencies/turtle_bringup
+[1.211s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/ament_index/resource_index/parent_prefix_path/turtle_bringup
+[1.211s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/environment/ament_prefix_path.sh
+[1.212s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/environment/ament_prefix_path.dsv
+[1.212s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/environment/path.sh
+[1.212s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/environment/path.dsv
+[1.212s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/local_setup.bash
+[1.212s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/local_setup.sh
+[1.212s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/local_setup.zsh
+[1.212s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/local_setup.dsv
+[1.213s] -- Installing: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/package.dsv
+[1.213s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/ament_index/resource_index/packages/turtle_bringup
+[1.213s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/cmake/turtle_bringupConfig.cmake
+[1.213s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/cmake/turtle_bringupConfig-version.cmake
+[1.213s] -- Up-to-date: /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/package.xml
+[1.216s] Invoked command in '/home/nakarin/RoboticsDev/build/turtle_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nakarin/RoboticsDev/install/launch_testing_examples:/home/nakarin/RoboticsDev/install/examples_rclpy_pointcloud_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_subscriber:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_service:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_publisher:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_client:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_server:/home/nakarin/RoboticsDev/install/examples_rclpy_minimal_action_client:/home/nakarin/RoboticsDev/install/examples_rclpy_guard_conditions:/home/nakarin/RoboticsDev/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/turtle_bringup
