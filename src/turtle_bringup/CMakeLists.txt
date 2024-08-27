@@ -52,6 +52,8 @@ install(TARGETS
 ################ INSTALL LAUNCH, ETC #################
 install(DIRECTORY
   # add directories here
+  launch
+  rvizconfig
   DESTINATION share/${PROJECT_NAME})
 
 ament_package()

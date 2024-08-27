@@ -12,6 +12,8 @@
 /home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/crazy_pizza.py
 /home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/odom_publisher.py
 /home/nakarin/RoboticsDev/install/turtle_bringup/lib/turtle_bringup/cpp_node_test
+/home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/launch/fun2.launch.py
+/home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/rvizconfig/fun2.rviz
 /home/nakarin/RoboticsDev/install/turtle_bringup/share/ament_index/resource_index/package_run_dependencies/turtle_bringup
 /home/nakarin/RoboticsDev/install/turtle_bringup/share/ament_index/resource_index/parent_prefix_path/turtle_bringup
 /home/nakarin/RoboticsDev/install/turtle_bringup/share/turtle_bringup/environment/ament_prefix_path.sh

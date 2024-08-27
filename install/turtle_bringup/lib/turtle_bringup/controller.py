@@ -22,14 +22,16 @@ class ControllerNode(Node):
         super().__init__('controller_node')
         self.create_timer(0.01, self.timer_callback) # timer
         
-        self.odom_publisher = self.create_publisher(Odometry, '/odom', 10) #publisher odom
-        self.tf_boardcaster = TransformBroadcaster(self) #transform
-        self.cmd_vel_pub = self.create_publisher(Twist, '/turtle1/cmd_vel', 10) #publisher
-        self.create_subscription(Pose, '/turtle1/pose', self.pose_callback, 10) #subscriber
+        # Set parameters
+        self.declare_parameter('namespace1', 'turtle1')
+        self.namespace1 = self.get_parameter('namespace1').get_parameter_value().string_value
+        
+        self.cmd_vel_pub = self.create_publisher(Twist, '/'+self.namespace1+'/cmd_vel', 10) #publisher
+        self.create_subscription(Pose, '/'+self.namespace1+'/pose', self.pose_callback, 10) #subscriber
         self.create_subscription(Point, '/mouse_position', self.mouse_callback, 10) #subscriber
         self.create_subscription(PoseStamped, '/goal_pose', self.goal_callback, 10) #subscriber
         self.spawn_pizza_client = self.create_client(GivePosition, '/spawn_pizza') #service
-        self.eat_pizza_client = self.create_client(Empty, '/turtle1/eat') #service
+        self.eat_pizza_client = self.create_client(Empty, '/'+self.namespace1+'/eat') #service
         
         self.robot_pose = np.array([0.0, 0.0, 0.0]) #x, y, theta
         self.goal_pose = np.array([0.0, 0.0]) #x, y
@@ -38,9 +40,11 @@ class ControllerNode(Node):
         self.pizza_pose = np.array([0.0, 0.0]) #x, y
         self.Queue = [[0.0, 0.0]] #Queue x, y  
         
+        self.get_logger().info('Controller node has been started')
+        
     def goal_callback(self, msg):
-        self.goal_pose[0] = msg.pose.position.x
-        self.goal_pose[1] = msg.pose.position.y
+        self.goal_pose[0] = msg.pose.position.x + 5.0
+        self.goal_pose[1] = msg.pose.position.y + 5.0
         # print(self.goal_pose)
         self.spawn_pizza(self.goal_pose[0], self.goal_pose[1]) #spawn pizza on pose when click mouse
         
@@ -71,7 +75,8 @@ class ControllerNode(Node):
         position_request.y = self.pizza_pose[1] = y
         self.Queue.append([self.pizza_pose[0], self.pizza_pose[1]])
         self.spawn_pizza_client.call_async(position_request)
-        print(self.Queue)
+        # print(self.Queue)
+        # self.get_logger().log('Pizza has been spawn at '+str(x)+','+str(y))
         
     def eat_pizza(self):
         eat_request = Empty.Request()
@@ -112,10 +117,10 @@ class ControllerNode(Node):
         else :
             v = 0.0
             w = 0.0
-            self.eat_pizza()
+                
             if len(self.Queue) > 0:
+                self.eat_pizza()
                 self.Queue.pop(0)
-
         
         self.cmdvel(v, w)
         

@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-from my_packages.dummy_module import dummy_function, dummy_var
 import rclpy
 from rclpy.node import Node
 
@@ -25,18 +24,20 @@ class CrazyTurtleNode(Node):
         super().__init__('crazy_turtle_node')
         self.create_timer(0.01, self.timer_callback) # timer
         
+        # Set parameters
+        self.declare_parameter('namespace1', 'turtle2')
+        self.namespace1 = self.get_parameter('namespace1').get_parameter_value().string_value
+        
         self.spawn_pizza_client = self.create_client(GivePosition, '/spawn_pizza') #service
         
-        self.odom_publisher = self.create_publisher(Odometry, '/odom', 10) #publisher odom
-        self.tf_boardcaster = TransformBroadcaster(self) #transform
-        self.cmd_vel_pub = self.create_publisher(Twist, '/turtle2/cmd_vel', 10) #publisher
-        self.create_subscription(Pose, '/turtle2/pose', self.pose_callback, 10) #subscriber
+        self.cmd_vel_pub = self.create_publisher(Twist, '/'+self.namespace1+'/cmd_vel', 10) #publisher
+        self.create_subscription(Pose, '/'+self.namespace1+'/pose', self.pose_callback, 10) #subscriber
         
         self.create_subscription(Pose, '/crazy_pizza', self.crazy_pizza_callback, 10) #subscriber from crazy pizza
         
         self.spawn_turtle_client = self.create_client(Spawn, '/spawn_turtle') #service
         self.spawn_pizza_client = self.create_client(GivePosition, '/spawn_pizza') #service
-        self.eat_pizza_client = self.create_client(Empty, '/turtle2/eat') #service
+        self.eat_pizza_client = self.create_client(Empty, '/'+self.namespace1+'/eat') #service
         
         self.robot_pose = np.array([0.0, 0.0, 0.0]) #x, y, theta
         self.mouse_pose = np.array([0.0, 0.0, 0.0]) #x, y, z
@@ -44,19 +45,27 @@ class CrazyTurtleNode(Node):
         self.crazy_pizza_pose = np.array([0.0, 0.0]) #x, y
         self.Queue = [[0.0, 0.0]] #Queue x, y  
         
-        self.spawn_turtle(5.5, 5.5, 1.0, '/turtle2') #x, y, theta, name
+        # Wait for the service to be available before calling
+        self.get_logger().info('Waiting for service...')
+        self.spawn_turtle_client.wait_for_service()
+        self.spawn_pizza_client.wait_for_service()
+        self.get_logger().info('service available.')
+        
+        self.spawn_turtle(0.5, 0.5, 1.0, '/'+self.namespace1) #x, y, theta, name
+        self.get_logger().info(self.namespace1+' has been started')
+
         
     def crazy_pizza_callback(self, msg):
         self.crazy_pizza_pose[0] = msg.x
         self.crazy_pizza_pose[1] = msg.y
-        print(self.crazy_pizza_pose)
+        # print(self.crazy_pizza_pose)
         
         position_request = GivePosition.Request()
         position_request.x = self.crazy_pizza_pose[0]
         position_request.y = self.crazy_pizza_pose[1]
         self.spawn_pizza_client.call_async(position_request)
-        
         self.Queue.append([self.crazy_pizza_pose[0], self.crazy_pizza_pose[1]])
+        # self.get_logger().log('Pizza has been spawn at '+str(msg.x)+','+str(msg.y))
         
     def cmdvel(self, v, w):
         msg = Twist()
@@ -71,14 +80,22 @@ class CrazyTurtleNode(Node):
         self.robot_pose[2] = msg.theta
         # print(self.robot_pose)
         
-        
+    def handle_spawn_turtle_response(self, future):
+        try:
+            response = future.result()
+            self.get_logger().info(f'Spawn turtle response: {response}')
+        except Exception as e:
+            self.get_logger().error(f'Spawn turtle failed: {e}')
+    
     def spawn_turtle(self, x, y, theta, name):
         position_request = Spawn.Request()
         position_request.x = x
         position_request.y = y
         position_request.theta = theta
         position_request.name = name
-        self.spawn_turtle_client.call_async(position_request)
+        future = self.spawn_turtle_client.call_async(position_request)
+        future.add_done_callback(self.handle_spawn_turtle_response)
+        # self.get_logger().info(name+' has been spawn at '+str(x)+','+str(y))
         
     def eat_pizza(self):
         eat_request = Empty.Request()
@@ -99,8 +116,6 @@ class CrazyTurtleNode(Node):
             
         e = alfa - self.robot_pose[2]
         
-        # kp_d = 30
-        # kp_t = 66
         
         kp_d = 25
         kp_t = 55
@@ -117,8 +132,8 @@ class CrazyTurtleNode(Node):
         else :
             v = 0.0
             w = 0.0
-            self.eat_pizza()
             if len(self.Queue) > 0:
+                self.eat_pizza()
                 self.Queue.pop(0)
 
         
