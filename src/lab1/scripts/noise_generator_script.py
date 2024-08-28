@@ -8,9 +8,9 @@ from std_msgs.msg import Float64
 from lab1_interfaces.srv import SetNoise
 
 class NoiseGeneratorNode(Node):
-    def __init__(self):
+    def __init__(self, namespace='default_ns'):
         # Initialize super class node
-        super().__init__('noise_generator_node')
+        super().__init__('noise_generator_node', namespace=namespace)
         # Create publisher for topic/noise
         self.noise_publisher = self.create_publisher(Float64, 'noise', 10)
         # Set the publisher rate
@@ -40,7 +40,7 @@ class NoiseGeneratorNode(Node):
         self.noise_publisher.publish(msg)
     
 def main(args=None):
-    rclpy.init(args=args)
+    rclpy.init(args=args)    
     node = NoiseGeneratorNode()
     rclpy.spin(node)
     node.destroy_node()
