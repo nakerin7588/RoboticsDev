@@ -1,6 +1,0 @@
-Invoking command in '/home/nakarin/RoboticsDev/build/lab1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/nakarin/RoboticsDev/src/lab1 -DCMAKE_INSTALL_PREFIX=/home/nakarin/RoboticsDev/install/lab1
-Invoked command in '/home/nakarin/RoboticsDev/build/lab1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/nakarin/RoboticsDev/src/lab1 -DCMAKE_INSTALL_PREFIX=/home/nakarin/RoboticsDev/install/lab1
-Invoking command in '/home/nakarin/RoboticsDev/build/lab1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/lab1 -- -j8 -l8
-Invoked command in '/home/nakarin/RoboticsDev/build/lab1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/nakarin/RoboticsDev/build/lab1 -- -j8 -l8
-Invoking command in '/home/nakarin/RoboticsDev/build/lab1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/lab1
-Invoked command in '/home/nakarin/RoboticsDev/build/lab1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/nakarin/RoboticsDev/build/lab1
