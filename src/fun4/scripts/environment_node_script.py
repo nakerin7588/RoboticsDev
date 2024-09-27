@@ -13,9 +13,10 @@ import roboticstoolbox as rtb
 import random
 import os
 from ament_index_python.packages import get_package_share_directory
-from spatialmath import SE3
+from spatialmath import SE3, SO3
 from tf_transformations import euler_from_quaternion
-from transforms3d import euler
+from transforms3d import quaternions, euler
+from math import pi
 
 # Additional msg srv
 from tf2_msgs.msg import TFMessage
@@ -41,17 +42,17 @@ class EnvironmentNode(Node):
         # Topic Subscriber variables
         tf_sub = self.create_subscription(TFMessage, '/tf', self.tf_callback, 10)
         tf_static_sub = self.create_subscription(TFMessage, '/tf_static', self.tf_static_callback, 10)
-        joints_state = self.create_subscription(JointState, '/joints_state', self.joints_state_callback, 10)
+        joints_state = self.create_subscription(JointState, '/joint_states', self.joints_state_callback, 10)
         
         # Service Server variables
         random_target = self.create_service(RequestRandomTarget, '/random_target', self.random_target_callback)
         
         # Variables
         self.random_target_values = [0.0, 0.0, 0.0]
-        self.joints_angle = []
+        self.joints_angle = [0.0001, 0.0001, 0.0001]
+        self.t_0_e = SE3()
+        self.t_3_e = SE3()
         # self.eff_pose = self.forward_kinematic()
-        self.t_0_e = SE3(0.0, 0.0, 0.0) * SE3.Eul(0.0, 0.0, 0.0)
-        self.t_3_e = SE3(0.0, 0.0, 0.0) * SE3.Eul(0.0, 0.0, 0.0)
         
         # Start up node
         self.get_logger().info("Environment node has been started")
@@ -60,11 +61,21 @@ class EnvironmentNode(Node):
         package_name = 'fun4'
         xacro_path = 'robot/visual/my-robot.xacro'
         robot_path = self.get_file_path(package_name, xacro_path)
-        # print(robot_path)
-        self.robot = rtb.ERobot.URDF(robot_path) # Initialize robot for kinematic model
-        # Show robot
+        mdh = [[0.0, 0.0, 0.2, 0], [0.0, pi/2.0, 0.12, pi/2.0], [0.25, 0.0, -0.1, -pi/2.0]]
+        revjoint = [] # Create revolute joint
+        for i, data in enumerate(mdh):
+            revjoint.append(rtb.RevoluteMDH(a=data[0], alpha=data[1], d=data[2], offset=data[3])) # Append revolute joint
+        self.robot = rtb.DHRobot(
+            [
+                revjoint[0],
+                revjoint[1],
+                revjoint[2]
+            ]
+            ,tool = SE3.Rx(-pi/2) * SE3.Tz(0.28)
+            ,name="3R robot"
+        )
+        # Show robot5
         print(self.robot)
-        self.robot.plot(q=[0.011, 0.011, 0.011], backend='pyplot')
         
     # Function
     def target_publish_func(self, position):
@@ -83,35 +94,35 @@ class EnvironmentNode(Node):
         msg.pose.position.x = position[0]
         msg.pose.position.y = position[1]
         msg.pose.position.z = position[2]
-        # print(msg)
         self.end_effector_pub.publish(msg)
     
     def timer_callback(self):
         # Publish target position
         self.target_publish_func(self.random_target_values)
-        self.eff_publish_func(self.endeffector_pose_compute().t)
-        # print(self.joints_angle)
-        # print(self.robot.fkine(q=[0.011, 0.011, 0.011]))
+        self.eff_publish_func(self.t_0_e.t)
     
     def tf_callback(self, msg):
         temp = []
-        self.t_0_e = SE3(0.0, 0.0, 0.0) * SE3.Eul(0.0, 0.0, 0.0)
+        self.t_0_e = SE3(0.0, 0.0, 0.0)
         for transform in msg.transforms:
-            temp_tf = SE3(transform.transform.translation.x, transform.transform.translation.y, transform.transform.translation.z) * SE3.Eul(euler.quat2euler([transform.transform.rotation.w, transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z]))
+            temp_tf = SE3.Rt(quaternions.quat2mat([transform.transform.rotation.w, transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z]), [transform.transform.translation.x, transform.transform.translation.y, transform.transform.translation.z])
             temp.append(temp_tf)
         for i in temp:
-            self.t_0_e = self.t_0_e * i
+            self.t_0_e = self.t_0_e @ i
+        
+        # Calculate end effector position every tf callback
+        self.endeffector_pose_compute()
         
     def tf_static_callback(self, msg):
-        self.t_3_e = msg.transforms.transform
+        for transform in msg.transforms:
+            self.t_3_e = SE3.Rt(quaternions.quat2mat([transform.transform.rotation.w, transform.transform.rotation.x, transform.transform.rotation.y, transform.transform.rotation.z]), [transform.transform.translation.x, transform.transform.translation.y, transform.transform.translation.z])
     
     def endeffector_pose_compute(self):
-        p_e_org = SE3(0.0, 0.0, 0.0)
-        self.t_0_e = self.t_0_e * self.t_3_e
-        return self.t_0_e * p_e_org
+        self.t_0_e = self.t_0_e @ self.t_3_e
+        return self.t_0_e.t
     
     def joints_state_callback(self, msg):
-        self.joints_angle = msg
+        self.joints_angle = msg.position
             
     def random_func(self):
         return random.uniform(-10.0, 10.0)
