@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 """
 This program is free software: you can redistribute it and/or modify it 
@@ -23,7 +23,7 @@ import xacro
     
 def generate_launch_description():
     
-    pkg = get_package_share_directory('example_description')
+    pkg = get_package_share_directory('fun4')
     rviz_path = os.path.join(pkg,'config','display.rviz')
     rviz = Node(
         package='rviz2',
@@ -34,10 +34,8 @@ def generate_launch_description():
     
     path_description = os.path.join(pkg,'robot','visual','my-robot.xacro')
     robot_desc_xml = xacro.process_file(path_description).toxml()
-    #robot_desc_xml = xacro.process_file(path_description,mappings={'robot_name': namespace}).toxml()
     
     parameters = [{'robot_description':robot_desc_xml}]
-    #parameters.append({'frame_prefix':namespace+'/'})
     robot_state_publisher = Node(package='robot_state_publisher',
                                   executable='robot_state_publisher',
                                   output='screen',

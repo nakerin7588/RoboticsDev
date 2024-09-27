@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(example_description)
+project(fun4)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -20,6 +20,7 @@ find_package(ament_cmake REQUIRED)		# cpp (optional)
 find_package(rclcpp REQUIRED)			# cpp (optional)
 find_package(ament_cmake_python REQUIRED)   	# python (optional)
 find_package(rclpy REQUIRED)                	# python (optional)
+find_package(fun4_interfaces REQUIRED)  # fun4 interfaces dependency
 ######################################################
 
 # Install Python Module
@@ -27,7 +28,7 @@ ament_python_install_package(${PROJECT_NAME})
 
 # Install Python executables
 install(PROGRAMS
-  scripts/dummy_script.py
+  scripts/environment_node_script.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
