@@ -42,10 +42,11 @@ class InverseKinematicNode(Node):
         self.create_service(SetModePosition, '/ik_target', self.computeRRRIK)
         
         # Client setup
-        self.IK_config_space_client = self.create_client(SetModePosition, '/ik_config_space')
+        self.ik_config_space_client = self.create_client(SetModePosition, '/ik_config_space')
+        self.ik_target_client = self.create_client(SetModePosition, '/ik_target_display')
         
         # Variables
-        self.IK_config_space_var = [0.0, 0.0, 0.0]
+        self.ik_config_space_var = [0.0, 0.0, 0.0]
         self.t = 0.0 # timer for trajectory
         
         mdh = [[0.0, 0.0, 0.2, 0], [0.0, pi/2.0, 0.12, pi/2.0], [0.25, 0.0, -0.1, -pi/2.0]]
@@ -90,13 +91,17 @@ class InverseKinematicNode(Node):
                 raise ValueError("Target is out of reach for the manipulator.")
             
             target = SE3(request.position.x, request.position.y, request.position.z)
-            self.IK_config_space_var = self.robot.ikine_LM(Tep=target, mask=[1, 1, 1, 0, 0, 0]).q
-            # self.get_logger().info(f'The FK are {self.robot.fkine(self.IK_config_space_var)}')
+            self.ik_config_space_var = self.robot.ikine_LM(Tep=target, mask=[1, 1, 1, 0, 0, 0]).q
             for i in range(3):
-                self.IK_config_space_var[i] = self.normalize_angle(self.IK_config_space_var[i])
+                self.ik_config_space_var[i] = self.normalize_angle(self.ik_config_space_var[i])
             self.send_joint_state()
+            request_ik_target_display = SetModePosition.Request()
+            request_ik_target_display.position.x = request.position.x
+            request_ik_target_display.position.y = request.position.y
+            request_ik_target_display.position.z = request.position.z
+            self.ik_target_client.call_async(request=request_ik_target_display)
             response.success = True
-            response.message = f'The configuration space from IK are q1: {self.IK_config_space_var[0]}, q2: {self.IK_config_space_var[1]}, q3: {self.IK_config_space_var[2]}'
+            response.message = f'The configuration space from IK are q1: {self.ik_config_space_var[0]}, q2: {self.ik_config_space_var[1]}, q3: {self.ik_config_space_var[2]}'
             return response
             
         except ValueError as e:
@@ -107,10 +112,10 @@ class InverseKinematicNode(Node):
 
     def send_joint_state(self):
         position = SetModePosition.Request()
-        position.position.x = self.IK_config_space_var[0]
-        position.position.y = self.IK_config_space_var[1]
-        position.position.z = self.IK_config_space_var[2]
-        self.IK_config_space_client.call_async(position)
+        position.position.x = self.ik_config_space_var[0]
+        position.position.y = self.ik_config_space_var[1]
+        position.position.z = self.ik_config_space_var[2]
+        self.ik_config_space_client.call_async(position)
 
 def main(args=None):
     rclpy.init(args=args)

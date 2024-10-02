@@ -21,7 +21,6 @@ from tf2_ros import Buffer, TransformListener
 # Additional msg srv
 from geometry_msgs.msg import PoseStamped
 from fun4_interfaces.srv import SetModePosition
-from sensor_msgs.msg import JointState
 
 class EnvironmentNode(Node):
     def __init__(self):
@@ -42,8 +41,10 @@ class EnvironmentNode(Node):
         
         # Service Server variables
         self.create_service(SetModePosition, '/random_target', self.random_target_callback)
+        self.create_service(SetModePosition, '/ik_target_display', self.ik_target_display_callback)
         
         # Variables
+        self.target_values_display = [0.0, 0.0, 0.0]
         self.random_target_values = [0.0, 0.0, 0.0]
         self.joints_angle = [0.0001, 0.0001, 0.0001]
         self.t_0_e = SE3()
@@ -104,7 +105,7 @@ class EnvironmentNode(Node):
         
     def timer_callback(self):
         # Publish target position
-        self.target_publish_func(self.random_target_values)
+        self.target_publish_func(self.target_values_display)
         self.eff_publish_func(self.endeffector_pose_compute())    
     
     def endeffector_pose_compute(self):
@@ -117,17 +118,23 @@ class EnvironmentNode(Node):
                 rclpy.time.Time(),  # Use the latest available transform
                 timeout=Duration(seconds=1.0)
             )
-
-            # # Extract the translation part of the transform (x, y, z)
-            # translation = trans.transform.translation
-
-            # # Log the translation of the end-effector relative to the base frame
-            # self.get_logger().info(f"End Effector Translation: x={translation.x}, y={translation.y}, z={translation.z}")
-
             return trans.transform
             
         except Exception as e:
             self.get_logger().error(f"Could not get transform: {str(e)}")
+            
+    def ik_target_display_callback(self, request, response):
+        try:
+            self.target_values_display[0] = request.position.x
+            self.target_values_display[1] = request.position.y
+            self.target_values_display[2] = request.position.z
+            self.get_logger().info(f"Display target values are {self.target_values_display}")
+            response.success = True
+            return response
+        except Exception as e:
+            response.success = False
+            self.get_logger().error(f"ik target display callback has {e}")
+            return response
             
     def random_func(self, l1 = 0.2, l2 = 0.25, l3 = 0.28):
         while(True):
@@ -139,11 +146,6 @@ class EnvironmentNode(Node):
             
     def random_target_callback(self, request, response):
         try:
-            # Random postion
-            # range_variables = self.workspace_calculate_func()
-            # for i in range(3):
-            #     self.random_target_values[i] = self.random_func()
-            # self.random_target_values[2] = self.random_func()
             self.random_target_values[0], self.random_target_values[1], self.random_target_values[2] = self.random_func()
             # Response random position
             response.position.x = self.random_target_values[0]
