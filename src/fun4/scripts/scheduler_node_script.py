@@ -9,6 +9,7 @@ import math
 import numpy as np
 
 # Additional msg srv
+from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import JointState
 from fun4_interfaces.srv import SetModePosition
 
@@ -34,8 +35,11 @@ class SchedulerNode(Node):
 
         # Topic Publisher variables
         self.taskspace_target_pub = self.create_publisher(JointState, '/joint_states', 10)
+        self.q_init_to_dk = self.create_publisher(Vector3, '/q_init_to_dk', 10)
         
         # Topic Subscriber variables
+        self.create_subscription(Vector3, '/dk_config_space_world', self.dk_config_space_world_callback, 10)
+        self.create_subscription(Vector3, '/dk_config_space_eff', self.dk_config_space_eff_callback, 10)
         
         # Service Server variables
         self.create_service(SetModePosition, '/mode_select', self.mode_select_callback)
@@ -48,6 +52,8 @@ class SchedulerNode(Node):
         # Variables
         self.mode = 0 # 0 = wait, 1 = inverse kinematic, 2 = teleop_twist_ref_eff_frame, 3 = teleop_twist_ref_world_frame, 4 = auto_generate
         self.ik_target = [0.0, 0.0, 0.0]
+        self.dk_config_space_world = [0.0, 0.0, 0.0]
+        self.dk_config_space_eff = [0.0, 0.0, 0.0]
         self.joint_name = ['joint_1', 'joint_2', 'joint_3']
         self.joint_target = [0.0, 0.0, 0.0]
         self.joint_current = [0.0, 0.0, 0.0]
@@ -58,11 +64,10 @@ class SchedulerNode(Node):
         # Start up
         
 
-    
     def mode_select_callback(self, request, response):
         try:
             if request.mode == 0:
-                self.joint_target =  self.joint_current
+                # self.joint_target = self.joint_current
                 self.mode = 0
                 response.success = True
                 self.get_logger().info("Success to change mode")
@@ -78,13 +83,13 @@ class SchedulerNode(Node):
                 self.mode = 2
                 response.success = True
                 self.get_logger().info("Success to change mode")
-                self.get_logger().info("Now is teleop reference velocity from end effector mode")
+                self.get_logger().info("Now is teleop reference velocity from end effector frame mode")
                 return response
             elif request.mode == 3:
                 self.mode = 3
                 response.success = True
                 self.get_logger().info("Success to change mode")
-                self.get_logger().info("Now is teleop reference velocity from world mode")
+                self.get_logger().info("Now is teleop reference velocity from world frame mode")
                 return response
             elif request.mode == 4:
                 self.mode = 4
@@ -104,9 +109,13 @@ class SchedulerNode(Node):
                 for i in range(3):
                     self.joint_current[i], self.trajc[i] = self.trajcompute(self.joint_current[i], self.joint_target[i], self.trajp[i], 0.000001, self.trajc[i], i)
             elif self.mode == 2:
-                self.get_logger().info("Teleop mode")
+                for i in range(3):
+                    self.joint_current[i] = self.joint_current[i] + (self.dk_config_space_eff[i] / self.rate)
+                
             elif self.mode == 3:
-                self.get_logger().info("Auto mode")
+                for i in range(3):
+                    self.joint_current[i] = self.joint_current[i] + (self.dk_config_space_world[i] / self.rate)
+
             elif self.mode == 4:
                 if np.any(self.trajisfinish == 0):
                     for i in range(3):
@@ -117,6 +126,8 @@ class SchedulerNode(Node):
                     future = self.random_client.call_async(request)
                     future.add_done_callback(self.get_random)   
                     self.trajisfinish[:] = 2
+                    
+            self.publish_q_init_to_dk()
             self.publish_joint_state(self.joint_current)
         except Exception as e:
             self.publish_joint_state(self.joint_current)
@@ -143,7 +154,6 @@ class SchedulerNode(Node):
         except Exception as e:
             self.get_logger().error(f"Send inverse kinematic target function has {e}")
             
-            
     def ik_config_space_callback(self, request, response):
         try:
             for i in range(3):
@@ -160,8 +170,7 @@ class SchedulerNode(Node):
         except Exception as e:
             self.get_logger().error(f"Inverse kinematic space call back has {e}")
             response.success = False
-            return response
-            
+            return response   
         
     def trajcompute(self, q, target, path, tol, count, i):
         times = int(self.trajtime * self.rate)
@@ -183,6 +192,28 @@ class SchedulerNode(Node):
         """Normalize angle to the range [-pi, pi]."""
         return (angle + np.pi) % (2 * np.pi) - np.pi
     
+    def dk_config_space_world_callback(self, msg):
+        # self.get_logger().info(f'{msg}')
+        self.dk_config_space_world[0] = msg.x
+        self.dk_config_space_world[1] = msg.y
+        self.dk_config_space_world[2] = msg.z
+    
+    def dk_config_space_eff_callback(self, msg):
+        # self.get_logger().info(f'{msg}')
+        self.dk_config_space_eff[0] = msg.x
+        self.dk_config_space_eff[1] = msg.y
+        self.dk_config_space_eff[2] = msg.z
+    
+    def publish_q_init_to_dk(self):
+        try:
+            msg = Vector3()
+            msg.x = self.joint_current[0]
+            msg.y = self.joint_current[1]
+            msg.z = self.joint_current[2]
+            self.q_init_to_dk.publish(msg)
+        except Exception as e:
+            self.get_logger().error(f"Publish q init to dk function has {e}")
+        
     def publish_joint_state(self, q):
         try:
             msg = JointState()

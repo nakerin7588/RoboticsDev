@@ -111,12 +111,15 @@ class InverseKinematicNode(Node):
             return response 
 
     def send_joint_state(self):
-        position = SetModePosition.Request()
-        position.position.x = self.ik_config_space_var[0]
-        position.position.y = self.ik_config_space_var[1]
-        position.position.z = self.ik_config_space_var[2]
-        self.ik_config_space_client.call_async(position)
-
+        try:
+            position = SetModePosition.Request()
+            position.position.x = self.ik_config_space_var[0]
+            position.position.y = self.ik_config_space_var[1]
+            position.position.z = self.ik_config_space_var[2]
+            self.ik_config_space_client.call_async(position)
+        except Exception as e:
+            self.get_logger().error(f"Error: {e}")
+            
 def main(args=None):
     rclpy.init(args=args)
     node = InverseKinematicNode()

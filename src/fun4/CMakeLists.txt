@@ -29,10 +29,8 @@ ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
   scripts/environment_node_script.py
-  scripts/controller_node_script.py
   scripts/inverse_kinematic_node_script.py
   scripts/differencetial_kinematic_node_script.py
-  scripts/joint_state_publisher_script.py
   scripts/scheduler_node_script.py
   DESTINATION lib/${PROJECT_NAME}
 )

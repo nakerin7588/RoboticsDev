@@ -56,21 +56,9 @@ def generate_launch_description():
         # name='environment_node'
     )
     
-    controller_node = Node(
-        package='fun4',
-        executable='controller_node_script.py'
-        # name='environment_node'
-    )
-    
-    joint_state_publisher = Node(
-        package='fun4',
-        executable='joint_state_publisher_script.py'
-        # name='environment_node'
-    )
-    
     launch_description = LaunchDescription()
     
-    node = [rviz, robot_state_publisher, environment_node, scheduler_node, inverse_kinematic_node]
+    node = [rviz, robot_state_publisher, environment_node, scheduler_node, inverse_kinematic_node, differencetial_kinematic_node]
     for i in node:
         launch_description.add_action(i)
     
