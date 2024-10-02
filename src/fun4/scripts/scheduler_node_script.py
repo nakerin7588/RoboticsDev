@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# ROS
+# ROS 2 imports
 import rclpy
 from rclpy.node import Node
 
@@ -17,39 +17,34 @@ class SchedulerNode(Node):
     def __init__(self):
         super().__init__('scheduler_node')
         
-        # Color define for logger
-        self.RED_COLOR = "\033[91m"
-        self.GREEN_COLOR = "\033[92m"
-        self.BLUE_COLOR = "\033[94m"
-        self.RESET_COLOR = "\033[0m"
-        
-        # Parameters setup
-        self.declare_parameter('rate', 100) # Timer interupt frequency (Hz)
+        # Declare parameters for node configuration
+        self.declare_parameter('rate', 100)
         self.declare_parameter('trajtime', 5.0)
         
+        # Initialize parameters from the declared parameters
         self.rate = self.get_parameter('rate').get_parameter_value().integer_value # Timer interupt frequency (Hz)
         self.trajtime = self.get_parameter('trajtime').get_parameter_value().double_value
         
-        # Timer for publish target and end effector pose
+        # Initialize timer
         self.create_timer(1/self.rate, self.timer_callback)
 
-        # Topic Publisher variables
+        # ROS 2 Topic publisher setup
         self.taskspace_target_pub = self.create_publisher(JointState, '/joint_states', 10)
         self.q_init_to_dk = self.create_publisher(Vector3, '/q_init_to_dk', 10)
         
-        # Topic Subscriber variables
+        # ROS 2 Topic subscriber setup
         self.create_subscription(Vector3, '/dk_config_space_world', self.dk_config_space_world_callback, 10)
         self.create_subscription(Vector3, '/dk_config_space_eff', self.dk_config_space_eff_callback, 10)
         
-        # Service Server variables
+        # ROS 2 Service server setup
         self.create_service(SetModePosition, '/mode_select', self.mode_select_callback)
         self.create_service(SetModePosition, '/ik_config_space', self.ik_config_space_callback)
         
-        # Service Client variables
+        # ROS 2 Service clients setup
         self.random_client = self.create_client(SetModePosition, '/random_target')
         self.ik_target_client = self.create_client(SetModePosition, '/ik_target')
         
-        # Variables
+        # Initialize a variables
         self.mode = 0 # 0 = wait, 1 = inverse kinematic, 2 = teleop_twist_ref_eff_frame, 3 = teleop_twist_ref_world_frame, 4 = auto_generate
         self.ik_target = [0.0, 0.0, 0.0]
         self.dk_config_space_world = [0.0, 0.0, 0.0]
@@ -61,13 +56,12 @@ class SchedulerNode(Node):
         self.trajp = [0.0, 0.0, 0.0]
         self.trajisfinish = np.array([1, 1, 1])
         
-        # Start up
-        
-
+        self.get_logger().info("Scheduler node has been started")
+    
+    # Define function
     def mode_select_callback(self, request, response):
         try:
             if request.mode == 0:
-                # self.joint_target = self.joint_current
                 self.mode = 0
                 response.success = True
                 self.get_logger().info("Success to change mode")
@@ -121,7 +115,7 @@ class SchedulerNode(Node):
                     for i in range(3):
                         self.joint_current[i], self.trajc[i] = self.trajcompute(self.joint_current[i], self.joint_target[i], self.trajp[i], 0.000001, self.trajc[i], i)
                 elif np.all(self.trajisfinish == 1):
-                    self.get_logger().info(f'{self.BLUE_COLOR}Finish task{self.RESET_COLOR}')
+                    self.get_logger().info(f'Finish task')
                     request = SetModePosition.Request()
                     future = self.random_client.call_async(request)
                     future.add_done_callback(self.get_random)   
@@ -189,7 +183,6 @@ class SchedulerNode(Node):
             return q, count
 
     def normalize_angle(self, angle):
-        """Normalize angle to the range [-pi, pi]."""
         return (angle + np.pi) % (2 * np.pi) - np.pi
     
     def dk_config_space_world_callback(self, msg):

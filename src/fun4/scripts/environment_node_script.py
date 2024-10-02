@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 
-"""
-
-"""
-
-# ROS
+# ROS 2 imports
 import rclpy
 from rclpy.node import Node
 from rclpy.duration import Duration
@@ -13,8 +9,8 @@ from rclpy.duration import Duration
 import roboticstoolbox as rtb
 import random
 from spatialmath import SE3
-from math import pi, sqrt
 from tf2_ros import Buffer, TransformListener
+import numpy as np
 
 # Additional msg srv
 from geometry_msgs.msg import PoseStamped
@@ -24,49 +20,53 @@ class EnvironmentNode(Node):
     def __init__(self):
         super().__init__('environment_node')
         
-        # Parameters setup
-        self.declare_parameter('rate', 100) # Timer interupt frequency (Hz)
-        rate = self.get_parameter('rate').get_parameter_value().integer_value # Timer interupt frequency (Hz)
+        # Declare parameters for node configuration
+        self.declare_parameter('rate', 100)
         
-        # Timer for publish target and end effector pose
+        # Initialize parameters from the declared parameters
+        rate = self.get_parameter('rate').get_parameter_value().integer_value
+        
+        # Initialize timer
         self.create_timer(1/rate, self.timer_callback)
         
-        # Topic Publisher variables
+        # ROS 2 Topic publisher setup
         self.target_pub = self.create_publisher(PoseStamped, '/target', 10) # This publiseher is for publish random task space
         self.end_effector_pub = self.create_publisher(PoseStamped, '/end_effector', 10) # This publiseher is for publish end effector pose
         
-        # Service Server variables
+        # ROS 2 Service clients setup
         self.create_service(SetModePosition, '/random_target', self.random_target_callback)
         self.create_service(SetModePosition, '/ik_target_display', self.ik_target_display_callback)
         
-        # Variables
+        # Initialize a variables
         self.target_values_display = [0.0, 0.0, 0.0]
         self.random_target_values = [0.0, 0.0, 0.0]
         self.joints_angle = [0.0001, 0.0001, 0.0001]
-        self.t_0_e = SE3()
-        self.t_3_e = SE3()
         
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
         
-        # Start up node
-        self.get_logger().info("Environment node has been started")
-        # Create robot model
-        mdh = [[0.0, 0.0, 0.2, 0], [0.0, pi/2.0, 0.12, pi/2.0], [0.25, 0.0, -0.1, -pi/2.0]]
-        revjoint = [] # Create revolute joint
+        # Define the robot using Modified Denavit-Hartenberg parameters
+        mdh = [[0.0, 0.0, 0.2, 0], [0.0, np.pi/2.0, 0.12, np.pi/2.0], [0.25, 0.0, -0.1, -np.pi/2.0]]
+        revjoint = []
+        
+        # Create revolute joints based on MDH parameters
         for data in mdh:
-            revjoint.append(rtb.RevoluteMDH(a=data[0], alpha=data[1], d=data[2], offset=data[3])) # Append revolute joint
+            revjoint.append(rtb.RevoluteMDH(a=data[0], alpha=data[1], d=data[2], offset=data[3])) # Append each revolute joint
+        
+        # Create a DHRobot object representing a 3-DOF robot arm
         self.robot = rtb.DHRobot(
             [
                 revjoint[0],
                 revjoint[1],
                 revjoint[2]
-            ]
-            ,tool = SE3.Rx(-pi/2) * SE3.Tz(0.28)
-            ,name="3R robot"
+            ],
+            tool = SE3.Rx(-np.pi/2) * SE3.Tz(0.28),
+            name="3R robot"
         )
         
-    # Function
+        self.get_logger().info("Environment node has been started")
+    
+    # Define function
     def target_publish_func(self, position):
         try:
             msg = PoseStamped()
@@ -98,18 +98,16 @@ class EnvironmentNode(Node):
             self.get_logger().error(f"Error: {e}")
         
     def timer_callback(self):
-        # Publish target position
         self.target_publish_func(self.target_values_display)
         self.eff_publish_func(self.endeffector_pose_compute())    
     
     def endeffector_pose_compute(self):
         try:    
-            # Lookup transform from 'base_link' to 'end_effector'
             now = self.get_clock().now().to_msg()
             trans = self.tf_buffer.lookup_transform(
-                'link_0',        # Base frame (replace with the actual base frame name)
-                'end_effector',     # End-effector frame (replace with the actual end-effector frame name)
-                rclpy.time.Time(),  # Use the latest available transform
+                'link_0',
+                'end_effector',
+                rclpy.time.Time(),
                 timeout=Duration(seconds=1.0)
             )
             return trans.transform
@@ -135,18 +133,16 @@ class EnvironmentNode(Node):
             x = random.uniform(-(l2+l3), (l2+l3))
             y = random.uniform(-(l2+l3), (l2+l3))
             z = random.uniform(-(l2+l3), (l1+l2+l3))
-            if sqrt(x**2 + (z-l1)**2) < l2+l3 and sqrt(y**2 + (z-l1)**2) < l2+l3:
+            if np.sqrt(x**2 + (z-l1)**2) < l2+l3 and np.sqrt(y**2 + (z-l1)**2) < l2+l3:
                 return x, y, z
             
     def random_target_callback(self, request, response):
         try:
             self.random_target_values[0], self.random_target_values[1], self.random_target_values[2] = self.random_func()
-            # Response random position
             response.position.x = self.random_target_values[0]
             response.position.y = self.random_target_values[1]
             response.position.z = self.random_target_values[2]
             response.success = True
-            # Log the response
             self.get_logger().info(f"Success to random position. The random position is x:{self.random_target_values[0]}, y:{self.random_target_values[1]}, z:{self.random_target_values[2]}")
             return response
         except Exception as e:
