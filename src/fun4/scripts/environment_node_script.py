@@ -69,7 +69,7 @@ class EnvironmentNode(Node):
             ,name="3R robot"
         )
         # Show robot5
-        print(self.robot)
+        # print(self.robot)
         
     # Function
     def target_publish_func(self, position):
