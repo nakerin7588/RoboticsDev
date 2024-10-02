@@ -1,20 +1,5 @@
 #!/usr/bin/python3
 
-"""
-This program is free software: you can redistribute it and/or modify it 
-under the terms of the GNU General Public License as published by the Free Software Foundation, 
-either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
-without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
-See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program. 
-If not, see <https://www.gnu.org/licenses/>.
-
-created by Thanacha Choopojcharoen at CoXsys Robotics (2022)
-"""
-
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
@@ -47,10 +32,46 @@ def generate_launch_description():
         executable='joint_state_publisher_gui'
     )
 
+    environment_node = Node(
+        package='fun4',
+        executable='environment_node_script.py'
+        # name='environment_node'
+    )
+    
+    scheduler_node = Node(
+        package='fun4',
+        executable='scheduler_node_script.py'
+        # name='environment_node'
+    )
+    
+    inverse_kinematic_node = Node(
+        package='fun4',
+        executable='inverse_kinematic_node_script.py'
+        # name='environment_node'
+    )
+    
+    differencetial_kinematic_node = Node(
+        package='fun4',
+        executable='differencetial_kinematic_node_script.py'
+        # name='environment_node'
+    )
+    
+    controller_node = Node(
+        package='fun4',
+        executable='controller_node_script.py'
+        # name='environment_node'
+    )
+    
+    joint_state_publisher = Node(
+        package='fun4',
+        executable='joint_state_publisher_script.py'
+        # name='environment_node'
+    )
+    
     launch_description = LaunchDescription()
     
-    launch_description.add_action(rviz)
-    launch_description.add_action(robot_state_publisher)
-    # launch_description.add_action(joint_state_publisher_gui)
+    node = [rviz, robot_state_publisher, environment_node, scheduler_node, inverse_kinematic_node]
+    for i in node:
+        launch_description.add_action(i)
     
     return launch_description

@@ -18,7 +18,7 @@ class JointStatePublisherNode(Node):
         super().__init__('joint_state_publisher_node')
         
         # Parameters setup
-        self.declare_parameter('rate', 1) # Timer interupt frequency (Hz)
+        self.declare_parameter('rate', 10) # Timer interupt frequency (Hz)
         rate = self.get_parameter('rate').get_parameter_value().integer_value # Timer interupt frequency (Hz)
         
         # Timer for publish target and end effector pose
