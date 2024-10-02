@@ -12,8 +12,7 @@ import numpy as np
 
 # Additional msg srv
 from geometry_msgs.msg import Twist, Vector3
-from sensor_msgs.msg import JointState
-from geometry_msgs.msg import PoseStamped
+from std_msgs.msg import String
 
 class DifferencetialKinematicNode(Node):
     def __init__(self):
@@ -29,6 +28,7 @@ class DifferencetialKinematicNode(Node):
         # Topic Publisher variables
         self.q_dot_world_pub = self.create_publisher(Vector3, '/dk_config_space_world', 10)
         self.q_dot_eff_pub = self.create_publisher(Vector3, '/dk_config_space_eff', 10)
+        self.teleop_status_pub = self.create_publisher(String, '/teleop_status', 10)
         
         # Topic Subscriber variables
         self.create_subscription(Twist, '/cmd_vel', self.cmd_callback, 10)
@@ -57,13 +57,13 @@ class DifferencetialKinematicNode(Node):
         )
         
     def timer_callback(self):
-        self.joint_velocity, w = self.compute_q_dot(self.current_joint_angles, self.linear_velo)
+        self.joint_velocity = self.compute_q_dot(self.current_joint_angles, self.linear_velo)
         msg = Vector3()
         msg.x = self.joint_velocity[0]
         msg.y = self.joint_velocity[1]
         msg.z = self.joint_velocity[2]
         self.q_dot_world_pub.publish(msg)
-        self.joint_velocity, w = self.compute_q_dot(self.current_joint_angles, self.linear_velo @ self.robot.fkine(self.current_joint_angles).R)
+        self.joint_velocity = self.compute_q_dot(self.current_joint_angles, self.linear_velo @ self.robot.fkine(self.current_joint_angles).R)
         msg.x = self.joint_velocity[0]
         msg.y = self.joint_velocity[1]
         msg.z = self.joint_velocity[2]
@@ -82,9 +82,15 @@ class DifferencetialKinematicNode(Node):
             J_ = J_[:3, :3]
             w = np.linalg.det(J_)
             if (-threshold) <= w <= threshold:
-                self.get_logger().warn((f"Low manipulability ({w}). Restricting motion."))
-                return np.array([0.0, 0.0, 0.0]), w
-            return joint_velocities, w
+                # self.get_logger().warn((f"Low manipulability ({w}). Restricting motion."))
+                msg = String()
+                msg.data = "Now robot is at singularity pose"
+                self.teleop_status_pub.publish(msg)
+                return np.array([0.0, 0.0, 0.0])
+            msg = String()
+            msg.data = "Now robot is at normal pose"
+            self.teleop_status_pub.publish(msg)
+            return joint_velocities
      
     def q_init_to_dk_callback(self, msg):
         self.current_joint_angles[0] = msg.x

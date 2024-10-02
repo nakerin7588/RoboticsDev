@@ -32,12 +32,6 @@ class InverseKinematicNode(Node):
         self.l3 = self.get_parameter('l3').get_parameter_value().double_value
         self.trajtime = self.get_parameter('trajtime').get_parameter_value().double_value
         
-        # Timer setup
-        self.timer_ = self.create_timer(1/self.rate, self.timer_callback)
-        
-        # Publisher setup
-        # self.IK_config_space_pub = self.create_publisher(JointState, '/ik_config_space', 10)
-        
         # Server setup
         self.create_service(SetModePosition, '/ik_target', self.computeRRRIK)
         
@@ -47,7 +41,6 @@ class InverseKinematicNode(Node):
         
         # Variables
         self.ik_config_space_var = [0.0, 0.0, 0.0]
-        self.t = 0.0 # timer for trajectory
         
         mdh = [[0.0, 0.0, 0.2, 0], [0.0, pi/2.0, 0.12, pi/2.0], [0.25, 0.0, -0.1, -pi/2.0]]
         revjoint = [] # Create revolute joint
@@ -65,11 +58,6 @@ class InverseKinematicNode(Node):
         
         # Initialize set-up
         self.get_logger().info("Inverse kinematic node has beem started")
-        
-    def timer_callback(self):
-        """Publishes the current joint angles at the specified rate."""
-        # self.publish_joint_state()
-        
         
     def normalize_angle(self, angle):
         """Normalize angle to the range [-pi, pi]."""

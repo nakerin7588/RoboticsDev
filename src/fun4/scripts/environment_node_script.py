@@ -12,8 +12,6 @@ from rclpy.duration import Duration
 # Additional library
 import roboticstoolbox as rtb
 import random
-import os
-from ament_index_python.packages import get_package_share_directory
 from spatialmath import SE3
 from math import pi, sqrt
 from tf2_ros import Buffer, TransformListener
@@ -37,8 +35,6 @@ class EnvironmentNode(Node):
         self.target_pub = self.create_publisher(PoseStamped, '/target', 10) # This publiseher is for publish random task space
         self.end_effector_pub = self.create_publisher(PoseStamped, '/end_effector', 10) # This publiseher is for publish end effector pose
         
-        # Topic Subscriber variables
-        
         # Service Server variables
         self.create_service(SetModePosition, '/random_target', self.random_target_callback)
         self.create_service(SetModePosition, '/ik_target_display', self.ik_target_display_callback)
@@ -58,7 +54,7 @@ class EnvironmentNode(Node):
         # Create robot model
         mdh = [[0.0, 0.0, 0.2, 0], [0.0, pi/2.0, 0.12, pi/2.0], [0.25, 0.0, -0.1, -pi/2.0]]
         revjoint = [] # Create revolute joint
-        for i, data in enumerate(mdh):
+        for data in mdh:
             revjoint.append(rtb.RevoluteMDH(a=data[0], alpha=data[1], d=data[2], offset=data[3])) # Append revolute joint
         self.robot = rtb.DHRobot(
             [
@@ -69,8 +65,6 @@ class EnvironmentNode(Node):
             ,tool = SE3.Rx(-pi/2) * SE3.Tz(0.28)
             ,name="3R robot"
         )
-        # Show robot5
-        # print(self.robot)
         
     # Function
     def target_publish_func(self, position):
@@ -159,21 +153,6 @@ class EnvironmentNode(Node):
             self.get_logger().info(f"Random target has {e}, Fail to random position.")
             response.success = False
             return response
-        
-    def get_file_path(self, package_name, relative_path):
-        try:
-            # Get the path to the package
-            package_path = get_package_share_directory(package_name)
-
-            # Append the relative file path to the package path
-            file_path = os.path.join(package_path, relative_path)
-
-            if os.path.exists(file_path):
-                return file_path
-            else:
-                raise FileNotFoundError(f"File '{relative_path}' not found in package '{package_name}'")
-        except Exception as e:
-            print(f"Error: {str(e)}")
     
 def main(args=None):
     rclpy.init(args=args)
