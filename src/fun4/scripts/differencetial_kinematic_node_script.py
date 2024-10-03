@@ -61,7 +61,6 @@ class DifferencetialKinematicNode(Node):
         
         self.get_logger().info("Differencetial kinematic node has been started")
     
-    # Define function
     def timer_callback(self):
         try:
             self.joint_velocity = self.compute_q_dot(self.current_joint_angles, self.linear_velo)
@@ -76,16 +75,20 @@ class DifferencetialKinematicNode(Node):
             msg.z = self.joint_velocity[2]
             self.q_dot_eff_pub.publish(msg)
         except Exception as e:
-            self.get_logger().error(f"Error: {e}")
-        
-    def cmd_callback(self, msg):
-        try:
-            self.get_logger().info(f"{msg.linear}")
-            self.linear_velo = [msg.linear.x, msg.linear.y, msg.linear.z]
-        except Exception as e:
-            self.get_logger().error(f"Error: {e}")
+            self.get_logger().error(f"Timer call back function has {e}")
         
     def compute_q_dot(self, joint_angles, ee_velocity, threshold=0.001):
+        '''
+        Compute joint velocity function
+        This function is calculate the joint velocity from this formula below:
+                            q_dot = inv_jacobian(q) * v
+            Let: 
+                q_dot is joint velocity
+                inv_jacobian is inverse of jacobian matrix from current q position (In this program use psedo_inverse form numpy)
+                v is velocity that reference from world frame
+        And also calculate the det of jacobian matrix to check is that pose of manipulator has singularity from this formula below:
+                    w = det(J(q)); if w is near to 0, means that manipulator has singularity
+        '''
         try:
             J = self.robot.jacob0(joint_angles)
             J = J[:3, :3]
@@ -104,7 +107,7 @@ class DifferencetialKinematicNode(Node):
             self.teleop_status_pub.publish(msg)
             return joint_velocities
         except Exception as e:
-            self.get_logger().error(f"Error: {e}")
+            self.get_logger().error(f"Compute q dot function has {e}")
             
     def q_init_to_dk_callback(self, msg):
         try:
@@ -112,8 +115,15 @@ class DifferencetialKinematicNode(Node):
             self.current_joint_angles[1] = msg.y
             self.current_joint_angles[2] = msg.z
         except Exception as e:
-            self.get_logger().error(f"Error: {e}")
-        
+            self.get_logger().error(f"q init to differencetial kinematic callback function has: {e}")
+    
+    def cmd_callback(self, msg):
+        try:
+            self.get_logger().info(f"{msg.linear}")
+            self.linear_velo = [msg.linear.x, msg.linear.y, msg.linear.z]
+        except Exception as e:
+            self.get_logger().error(f"cmd velocity callback has {e}")
+    
 def main(args=None):
     rclpy.init(args=args)
     node = DifferencetialKinematicNode()

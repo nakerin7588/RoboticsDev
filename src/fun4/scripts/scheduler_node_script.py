@@ -57,8 +57,94 @@ class SchedulerNode(Node):
         self.trajisfinish = np.array([1, 1, 1])
         
         self.get_logger().info("Scheduler node has been started")
+        
+    def timer_callback(self):
+        try:
+            if self.mode == 0 :
+                pass
+            elif self.mode == 1 :
+                for i in range(3):
+                    self.joint_current[i], self.trajc[i] = self.trajcompute(self.joint_current[i], self.joint_target[i], self.trajp[i], 0.000001, self.trajc[i], i)
+            elif self.mode == 2:
+                for i in range(3):
+                    self.joint_current[i] = self.joint_current[i] + (self.dk_config_space_eff[i] / self.rate)
+                
+            elif self.mode == 3:
+                for i in range(3):
+                    self.joint_current[i] = self.joint_current[i] + (self.dk_config_space_world[i] / self.rate)
+
+            elif self.mode == 4:
+                if np.any(self.trajisfinish == 0):
+                    for i in range(3):
+                        self.joint_current[i], self.trajc[i] = self.trajcompute(self.joint_current[i], self.joint_target[i], self.trajp[i], 0.000001, self.trajc[i], i)
+                elif np.all(self.trajisfinish == 1):
+                    self.get_logger().info(f'Finish task')
+                    request = SetModePosition.Request()
+                    future = self.random_client.call_async(request)
+                    future.add_done_callback(self.get_random)   
+                    self.trajisfinish[:] = 2
+                    
+            self.publish_q_init_to_dk()
+            self.publish_joint_state(self.joint_current)
+        except Exception as e:
+            self.publish_joint_state(self.joint_current)
+            self.get_logger().error(f"SchedulerNode has {e}")
+        
+    def trajcompute(self, q, target, path, tol, count, i):
+        '''
+        Trajectory compute.
+        This function is calculate the trajectory for current position in real time.
+        '''
+        times = int(self.trajtime * self.rate)
+        try:
+            if math.fabs(q - target) <= tol or count == times:
+                self.trajisfinish[i] = 1
+                return q, count
+            elif q > target:
+                count += 1
+                return (q-(path/times)), count
+            elif q < target:
+                count += 1
+                return (q+(path/times)), count
+        except Exception as e:
+            self.get_logger().error(f"Trajectory compute function has {e}")
+            return q, count
+
+    def normalize_angle(self, angle):
+        return (angle + np.pi) % (2 * np.pi) - np.pi
     
-    # Define function
+    def get_random(self, future):
+        try:
+            response = future.result()
+            request = SetModePosition.Request()
+            request.position.x = response.position.x
+            request.position.y = response.position.y
+            request.position.z = response.position.z
+            self.ik_target_client.call_async(request)
+            future.add_done_callback(self.send_ik_target)  
+        except Exception as e:
+            self.get_logger().error(f"Get random function has {e}")      
+    
+    def publish_q_init_to_dk(self):
+        try:
+            msg = Vector3()
+            msg.x = self.joint_current[0]
+            msg.y = self.joint_current[1]
+            msg.z = self.joint_current[2]
+            self.q_init_to_dk.publish(msg)
+        except Exception as e:
+            self.get_logger().error(f"Publish q init to dk function has {e}")
+        
+    def publish_joint_state(self, q):
+        try:
+            msg = JointState()
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.position = q
+            msg.name = self.joint_name
+            self.taskspace_target_pub.publish(msg)
+        except Exception as e:
+            self.get_logger().error(f"Publish joint state function has {e}")
+    
     def mode_select_callback(self, request, response):
         try:
             if request.mode == 0:
@@ -95,59 +181,6 @@ class SchedulerNode(Node):
             response.success = False
             self.get_logger().error(f"Mode select function has {e}")
         
-    def timer_callback(self):
-        try:
-            if self.mode == 0 :
-                pass
-            elif self.mode == 1 :
-                for i in range(3):
-                    self.joint_current[i], self.trajc[i] = self.trajcompute(self.joint_current[i], self.joint_target[i], self.trajp[i], 0.000001, self.trajc[i], i)
-            elif self.mode == 2:
-                for i in range(3):
-                    self.joint_current[i] = self.joint_current[i] + (self.dk_config_space_eff[i] / self.rate)
-                
-            elif self.mode == 3:
-                for i in range(3):
-                    self.joint_current[i] = self.joint_current[i] + (self.dk_config_space_world[i] / self.rate)
-
-            elif self.mode == 4:
-                if np.any(self.trajisfinish == 0):
-                    for i in range(3):
-                        self.joint_current[i], self.trajc[i] = self.trajcompute(self.joint_current[i], self.joint_target[i], self.trajp[i], 0.000001, self.trajc[i], i)
-                elif np.all(self.trajisfinish == 1):
-                    self.get_logger().info(f'Finish task')
-                    request = SetModePosition.Request()
-                    future = self.random_client.call_async(request)
-                    future.add_done_callback(self.get_random)   
-                    self.trajisfinish[:] = 2
-                    
-            self.publish_q_init_to_dk()
-            self.publish_joint_state(self.joint_current)
-        except Exception as e:
-            self.publish_joint_state(self.joint_current)
-            self.get_logger().error(f"SchedulerNode has {e}")
-    
-    def get_random(self, future):
-        try:
-            response = future.result()
-            request = SetModePosition.Request()
-            request.position.x = response.position.x
-            request.position.y = response.position.y
-            request.position.z = response.position.z
-            self.ik_target_client.call_async(request)
-            future.add_done_callback(self.send_ik_target)  
-        except Exception as e:
-            self.get_logger().error(f"Get random function has {e}")      
-        
-    def send_ik_target(self, future):
-        try:
-            response = future.result()
-            if response.success == False:
-                self.get_logger().error(f"Can not receive target!. Reset mode")
-                self.mode = 0
-        except Exception as e:
-            self.get_logger().error(f"Send inverse kinematic target function has {e}")
-            
     def ik_config_space_callback(self, request, response):
         try:
             for i in range(3):
@@ -165,58 +198,32 @@ class SchedulerNode(Node):
             self.get_logger().error(f"Inverse kinematic space call back has {e}")
             response.success = False
             return response   
-        
-    def trajcompute(self, q, target, path, tol, count, i):
-        times = int(self.trajtime * self.rate)
-        try:
-            if math.fabs(q - target) <= tol or count == times:
-                self.trajisfinish[i] = 1
-                return q, count
-            elif q > target:
-                count += 1
-                return (q-(path/times)), count
-            elif q < target:
-                count += 1
-                return (q+(path/times)), count
-        except Exception as e:
-            self.get_logger().error(f"Trajectory compute function has {e}")
-            return q, count
-
-    def normalize_angle(self, angle):
-        return (angle + np.pi) % (2 * np.pi) - np.pi
     
+    def send_ik_target(self, future):
+        try:
+            response = future.result()
+            if response.success == False:
+                self.get_logger().error(f"Can not receive target!. Reset mode")
+                self.mode = 0
+        except Exception as e:
+            self.get_logger().error(f"Send inverse kinematic target function has {e}")
+            
     def dk_config_space_world_callback(self, msg):
-        # self.get_logger().info(f'{msg}')
-        self.dk_config_space_world[0] = msg.x
-        self.dk_config_space_world[1] = msg.y
-        self.dk_config_space_world[2] = msg.z
-    
-    def dk_config_space_eff_callback(self, msg):
-        # self.get_logger().info(f'{msg}')
-        self.dk_config_space_eff[0] = msg.x
-        self.dk_config_space_eff[1] = msg.y
-        self.dk_config_space_eff[2] = msg.z
-    
-    def publish_q_init_to_dk(self):
         try:
-            msg = Vector3()
-            msg.x = self.joint_current[0]
-            msg.y = self.joint_current[1]
-            msg.z = self.joint_current[2]
-            self.q_init_to_dk.publish(msg)
+            self.dk_config_space_world[0] = msg.x
+            self.dk_config_space_world[1] = msg.y
+            self.dk_config_space_world[2] = msg.z
         except Exception as e:
-            self.get_logger().error(f"Publish q init to dk function has {e}")
+            self.get_logger().error(f"Differencetial kinematic configuration space ref world callback function has {e}")
         
-    def publish_joint_state(self, q):
+    def dk_config_space_eff_callback(self, msg):
         try:
-            msg = JointState()
-            msg.header.stamp = self.get_clock().now().to_msg()
-            msg.position = q
-            msg.name = self.joint_name
-            self.taskspace_target_pub.publish(msg)
+            self.dk_config_space_eff[0] = msg.x
+            self.dk_config_space_eff[1] = msg.y
+            self.dk_config_space_eff[2] = msg.z
         except Exception as e:
-            self.get_logger().error(f"Publish joint state function has {e}")
-    
+            self.get_logger().error(f"Differencetial kinematic configuration space ref eff callback function has {e}")
+        
 def main(args=None):
     rclpy.init(args=args)
     node = SchedulerNode()

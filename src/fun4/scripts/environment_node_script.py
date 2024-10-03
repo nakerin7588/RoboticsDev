@@ -66,7 +66,39 @@ class EnvironmentNode(Node):
         
         self.get_logger().info("Environment node has been started")
     
-    # Define function
+    def timer_callback(self):
+        try :
+            self.target_publish_func(self.target_values_display)
+            self.eff_publish_func(self.endeffector_pose_compute())    
+        except Exception as e:
+            self.get_logger().error(f"Timer callback has {e}")
+        
+    def endeffector_pose_compute(self):
+        try:    
+            now = self.get_clock().now().to_msg()
+            trans = self.tf_buffer.lookup_transform(
+                'link_0',
+                'end_effector',
+                rclpy.time.Time(),
+                timeout=Duration(seconds=1.0)
+            )
+            return trans.transform
+            
+        except Exception as e:
+            self.get_logger().error(f"Could not get transform: {str(e)}")
+            
+    def random_func(self, l1 = 0.2, l2 = 0.25, l3 = 0.28):
+        '''
+        Random function
+        This funtion is random the target that is taskspace of manipulator with manipulator lenght to define work space of it.
+        '''
+        while(True):
+            x = random.uniform(-(l2+l3), (l2+l3))
+            y = random.uniform(-(l2+l3), (l2+l3))
+            z = random.uniform(-(l2+l3), (l1+l2+l3))
+            if np.sqrt(x**2 + (z-l1)**2) < l2+l3 and np.sqrt(y**2 + (z-l1)**2) < l2+l3:
+                return x, y, z
+            
     def target_publish_func(self, position):
         try:
             msg = PoseStamped()
@@ -95,25 +127,7 @@ class EnvironmentNode(Node):
             msg.pose.orientation.z = tf.rotation.z
             self.end_effector_pub.publish(msg)
         except ValueError as e:
-            self.get_logger().error(f"Error: {e}")
-        
-    def timer_callback(self):
-        self.target_publish_func(self.target_values_display)
-        self.eff_publish_func(self.endeffector_pose_compute())    
-    
-    def endeffector_pose_compute(self):
-        try:    
-            now = self.get_clock().now().to_msg()
-            trans = self.tf_buffer.lookup_transform(
-                'link_0',
-                'end_effector',
-                rclpy.time.Time(),
-                timeout=Duration(seconds=1.0)
-            )
-            return trans.transform
-            
-        except Exception as e:
-            self.get_logger().error(f"Could not get transform: {str(e)}")
+            self.get_logger().error(f"Eff publish function has {e}")
             
     def ik_target_display_callback(self, request, response):
         try:
@@ -125,16 +139,8 @@ class EnvironmentNode(Node):
             return response
         except Exception as e:
             response.success = False
-            self.get_logger().error(f"ik target display callback has {e}")
+            self.get_logger().error(f"Inverse kinematic target display callback has {e}")
             return response
-            
-    def random_func(self, l1 = 0.2, l2 = 0.25, l3 = 0.28):
-        while(True):
-            x = random.uniform(-(l2+l3), (l2+l3))
-            y = random.uniform(-(l2+l3), (l2+l3))
-            z = random.uniform(-(l2+l3), (l1+l2+l3))
-            if np.sqrt(x**2 + (z-l1)**2) < l2+l3 and np.sqrt(y**2 + (z-l1)**2) < l2+l3:
-                return x, y, z
             
     def random_target_callback(self, request, response):
         try:

@@ -58,11 +58,15 @@ class InverseKinematicNode(Node):
         
         self.get_logger().info("Inverse kinematic node has been started")
     
-    # Define function
     def normalize_angle(self, angle):
         return (angle + np.pi) % (2 * np.pi) - np.pi
 
     def computeRRRIK(self, request, response):
+        '''
+        Compute RRR inverse kinematic function.
+        This function is calculate joint position from taskspace and compute it via robotics toolbox inverse kinematic.
+        And also send the target joint position to scheduler node for calculate trajectory and publish current joint position to rviz.
+        '''
         try:
             x2 = request.position.x ** 2
             z_shifted = request.position.z - self.l1
@@ -93,7 +97,7 @@ class InverseKinematicNode(Node):
             return response
             
         except ValueError as e:
-            self.get_logger().error(f"Error: {e}")
+            self.get_logger().error(f"Compute RRR inverse kinematic has {e}")
             response.success = False
             response.message = "Cann't calculate the IK."
             return response 
@@ -106,7 +110,7 @@ class InverseKinematicNode(Node):
             position.position.z = self.ik_config_space_var[2]
             self.ik_config_space_client.call_async(position)
         except Exception as e:
-            self.get_logger().error(f"Error: {e}")
+            self.get_logger().error(f"Send joint state function has {e}")
             
 def main(args=None):
     rclpy.init(args=args)
