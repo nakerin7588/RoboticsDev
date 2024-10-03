@@ -12,6 +12,9 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+        <ul>
+            <li><a href="#system-architecture">System architecture</a></li>
+        </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -37,7 +40,18 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+This project is in FRA501(Robotics Development) class at **FIBO** that teach about ROS2 humble. So **FUN4** is the one of this class assignment that have the mission to control manipulator RRR robot arm.
 
+### System architecture
+
+*   **Full system architecture**
+    <p align="center"><img src="images/System_architecture.jpg" alt="Image Description" /></p>
+    This architecture show how all of nodes in this project communicate with each other.
+
+*   **Robot system architecture**
+    <p align="center"><img src="images/System_architecture_robot.jpg" alt="Image Description" /></p>
+
+    If we focus only robot system architecture. The main component that control all of activity of robot is 1st node "`Scheduler node`". This node is the main component of this project that has role to **select mode**, **control input/output data between nodes**, **publish joint states** and ETC. 2nd is `Environment node` that has role to **Calculate the workspace for random target**, **random target for auto mode**, **publish end-effector & target pose**. 3rd node is `Inverse kinematic node`. This node has role to calculate the **Inverse kinematic to find joint position target of request taskspace** and last node is `Differencetial kinematic node` that has role to **calculate the velocity of joint from endeffector velocity**. There are also other node work with this project, you can see on Full system architecture.
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -194,10 +208,5 @@ This section explains what this or those features do in this project.
 Nakarin Jettanatummajit - nakerin7588@gmail.com - nakarin.jett@mail.kmutt.ac.th
 
 Project Link: [https://github.com/nakerin7588/RoboticsDev/tree/fun4](https://github.com/nakerin7588/RoboticsDev/tree/fun4)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
