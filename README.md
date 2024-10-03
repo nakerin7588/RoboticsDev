@@ -144,7 +144,7 @@ This section explains what this or those features do in this project.
 
     To show workspace of the robot you must execute the `workspace.ipynb` in VScode. You can follow by this command below.
     ```
-    code ~/RoboticDev/workspace/workspace.ipynb
+    code ~/RoboticDev/notebook/workspace.ipynb
     ```
     After that you can see the workspace in VScode like this picture below.
 
