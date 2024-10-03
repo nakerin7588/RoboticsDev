@@ -40,6 +40,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
 This project is in FRA501(Robotics Development) class at **FIBO** that teach about ROS2 humble. So **FUN4** is the one of this class assignment that have the mission to control manipulator RRR robot arm.
 
 ### System architecture
@@ -55,10 +56,15 @@ This project is in FRA501(Robotics Development) class at **FIBO** that teach abo
 
 <!-- GETTING STARTED -->
 ## Getting Started
+
 ### Prerequisites
+
 To use this project. You need to have all of prerequisites for this project.
+
 #### Python packages
+
 ⚠️  **Warning:**    Make sure you have python version >= 3.6 already.
+
 *   setuptool
 
     ```
@@ -141,25 +147,32 @@ ros2 launch fun4 robot_bringup.launch.py
 
 After launch the project rviz2 window will show on your screen with red RRR robot arm like this picture below.
 
-![alt text](images/rviz_screen_after_launch_project.png)
+<p align="center"><img src="images/rviz_screen_after_launch_project.png" alt="Image Description" /></p>
 
 ### Service call in this project
+
 1. **Mode select**
+
     ```
     ros2 service call /mode_select fun4_interfaces/srv/SetModePosition "mode: <mode>"
     ```
+
     Change `<mode>` to mode that you want to use such as :
+
     *  `0` for `wait` mode
     *  `1` for `inverse kinematic` mode
     *  `2` for `teleop/reference velocity from end-effector frame` mode
     *  `3` for `teleop/reference velocity from world frame` mode
     *  `4` for `auto` mode
+
 <p align="right">How to use mode will explain in the next section.</p>
 
 2. **Inverse kinematic mode target**
+
     ```
     ros2 service call /ik_target fun4_interfaces/srv/SetModePosition "position: {x: <x_pos>, y: <y_pos>, z: <z_pos>}"
     ```
+
     Change `<x_pos>`, `<x_pos>`, `<x_pos>` to position of axis that you want.
 
 ### Teleop_twist_keyboard
@@ -186,13 +199,17 @@ Optional key are `q/z` : for increase/decrease max speeds by 10%
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Features
+
 This section explains what this or those features do in this project.
+
 1.  **Show workspace of the robot**
 
     To show workspace of the robot you must execute the `workspace.ipynb` in VScode. You can follow by this command below.
+
     ```
     code ~/RoboticDev/notebook/workspace.ipynb
     ```
+
     After that you can see the workspace in VScode like this picture below.
 
      <p align="center"><img src="images/workspace.png" alt="Image Description" /></p>
@@ -212,7 +229,6 @@ This section explains what this or those features do in this project.
         if np.sqrt(x**2 + (z-l1)**2) < l2+l3 and np.sqrt(y**2 + (z-l1)**2) < l2+l3:
             return x, y, z
      ```
-
 
 2.  **Show End-effector and Target pose**
 
@@ -286,6 +302,8 @@ This section explains what this or those features do in this project.
     After run this command the robot on rviz will move to the target and end-effector/target ball will show together.
 
     <p align="center"><img src="images/ik_move.gif" alt="Image Description" /></p>
+
+    <p align="center"><img src="images/ik_move_terminal.gif" alt="Image Description" /></p>
 
     Invert kinematic is solve by this function.
 
@@ -424,6 +442,8 @@ This section explains what this or those features do in this project.
     After that robot will automatically random the target and move the robot to that target until the robot reach target. Target will random new position.
 
     <p align="center"><img src="images/auto_move.gif" alt="Image Description" /></p>
+
+    <p align="center"><img src="images/auto_move_terminal.gif" alt="Image Description" /></p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
