@@ -31,6 +31,7 @@
     <ul>
         <li><a href="#launch-the-project">Launch the project</a></li>
         <li><a href="#service-call-in-this-project">Service call in this project</a></li>
+        <li><a href="#teleop_twist_keyboard">Teleop twist keyboard</a></li>
     </ul>
     <li><a href="#features">Features</a></li>
     <li><a href="#contact">Contact</a></li>
