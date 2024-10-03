@@ -148,19 +148,74 @@ This section explains what this or those features do in this project.
     ```
     After that you can see the workspace in VScode like this picture below.
 
+     <p align="center"><img src="images/workspace.png" alt="Image Description" /></p>
+
+     But in the Environment node this project define workspace in `random function` this function will random the number in range of link lenght and recheck it to make sure that number is in workspace.
+
+     ```Python
+    def random_func(self, l1 = 0.2, l2 = 0.25, l3 = 0.28):
+    '''
+    Random function
+    This funtion is random the target that is taskspace of manipulator with manipulator lenght to define work space of it.
+    '''
+    while(True):
+        x = random.uniform(-(l2+l3), (l2+l3))
+        y = random.uniform(-(l2+l3), (l2+l3))
+        z = random.uniform(-(l2+l3), (l1+l2+l3))
+        if np.sqrt(x**2 + (z-l1)**2) < l2+l3 and np.sqrt(y**2 + (z-l1)**2) < l2+l3:
+            return x, y, z
+     ```
+
+
 2.  **Show End-effector and Target pose**
 
     This feature can show the current end-effector pose and target pose(From inverse kinematic and auto mode). After you launch the project you can see the axis ball on end-effector of robot and robot base like the picture below that is an initial end-effector pose and target pose.
     <p align="center"><img src="images/robot_initial_pose_fade.png" alt="Image Description" /></p>
+
+    All of those pose is come from this function.
+
+    ```Python
+    def target_publish_func(self, position):
+        try:
+            msg = PoseStamped()
+            msg.header.frame_id = "link_0"
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.pose.position.x = position[0]
+            msg.pose.position.y = position[1]
+            msg.pose.position.z = position[2]
+            self.target_pub.publish(msg)
+        except Exception as e:
+            self.get_logger().error(f"Target_publish_function has {e}")
+            
+    def eff_publish_func(self, tf):
+        try:
+            if tf == None:
+                raise ValueError("Wait for tf.")
+            msg = PoseStamped()
+            msg.header.frame_id = "link_0"
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.pose.position.x = tf.translation.x
+            msg.pose.position.y = tf.translation.y
+            msg.pose.position.z = tf.translation.z
+            msg.pose.orientation.w = tf.rotation.w
+            msg.pose.orientation.x = tf.rotation.x
+            msg.pose.orientation.y = tf.rotation.y
+            msg.pose.orientation.z = tf.rotation.z
+            self.end_effector_pub.publish(msg)
+        except ValueError as e:
+            self.get_logger().error(f"Eff publish function has {e}")
+    ```
 
 3.  **Wait mode**
 
     This mode work like idle mode to wait for the command when you launch the project robot will entry to this mode first.
 
     To change the mode when you are in other mode. You can follow this command below.
+
     ```
     ros2 service call /mode_select fun4_interfaces/srv/SetModePosition "mode: 0"
     ```
+
     After that robot will stop at current position until you change mode to move the robot.
 
 4.  **Inverse kinematic mode**
@@ -170,22 +225,81 @@ This section explains what this or those features do in this project.
     ⚠️  **Warning:** Make sure you launch this project first.
 
     To use this mode you can follow by this command below.
+
     ```
     ros2 service call /mode_select fun4_interfaces/srv/SetModePosition "mode: 1"
     ```
+
     After that you can set the target of the robot by this commad below. In this example will define the target as x: 0.01, y: 0.2, z: 0.04
+
     ```
     ros2 service call /ik_target fun4_interfaces/srv/SetModePosition "position: {x: 0.01, y: 0.2, z: 0.04}"
     ```
+
     After run this command the robot on rviz will move to the target and end-effector/target ball will show together.
 
     <p align="center"><img src="images/ik_move.gif" alt="Image Description" /></p>
 
+    Invert kinematic is solve by this function.
+
+    ```Python
+    def computeRRRIK(self, request, response):
+        '''
+        Compute RRR inverse kinematic function.
+        This function is calculate joint position from taskspace and compute it via robotics toolbox inverse kinematic.
+        And also send the target joint position to scheduler node for calculate trajectory and publish current joint position to rviz.
+        '''
+        try:
+            x2 = request.position.x ** 2
+            z_shifted = request.position.z - self.l1
+            z2 = z_shifted ** 2
+            r = math.sqrt(x2 + z2) 
+            
+            if r > (self.l2 + self.l3):
+                self.get_logger().info(f'r = {r}')
+                raise ValueError("Target is out of reach for the manipulator.")
+            
+            target = SE3(request.position.x, request.position.y, request.position.z)
+            
+            self.ik_config_space_var = self.robot.ikine_LM(Tep=target, mask=[1, 1, 1, 0, 0, 0]).q
+            
+            for i in range(3):
+                self.ik_config_space_var[i] = self.normalize_angle(self.ik_config_space_var[i])
+            
+            self.send_joint_state()
+            
+            request_ik_target_display = SetModePosition.Request()
+            request_ik_target_display.position.x = request.position.x
+            request_ik_target_display.position.y = request.position.y
+            request_ik_target_display.position.z = request.position.z
+            self.ik_target_client.call_async(request=request_ik_target_display)
+            
+            response.success = True
+            response.message = f'The configuration space from IK are q1: {self.ik_config_space_var[0]}, q2: {self.ik_config_space_var[1]}, q3: {self.ik_config_space_var[2]}'
+            return response
+            
+        except ValueError as e:
+            self.get_logger().error(f"Compute RRR inverse kinematic has {e}")
+            response.success = False
+            response.message = "Cann't calculate the IK."
+            return response 
+    ```
+
 5.  **Teleoperation mode**
 
-    This mode has ability to move the robot by using `teleop_twist_keyboard` that can set the velocity and send it to the robot. This mode has 2 sub-mode
+    This mode has ability to move the robot by using `teleop_twist_keyboard` that can set the velocity and send it to the robot. This mode has 2 sub-mode:
+
+    ⚠️  **Warning:** Make sure you launch this project & run teleop_twist_keyboard first.
+
+
     *   Velocity that reference from end-effector frame
+        In this mode will know that velocity you send to robot will reference from end-effector frame like if you send velocity on X-axis robot will move through the X-axis of end-effector frame like GIF below.
+
+
     *   Velocity that reference from world frame
+        In this mode will know that velocity you send to robot will reference from world frame(Base) like if you send velocity on X-axis robot will move through the X-axis of world frame like GIF below.
+
+
 6.  **Auto mode**
 
     This mode is like Inverse kinematic mode that will move the robot end-effector to the target position but this mode will random the target from environment mode and then will send the target to inverse kinematic mode to calculate. **You can see the architecture diagram on the top of this README**
@@ -193,9 +307,11 @@ This section explains what this or those features do in this project.
     ⚠️  **Warning:** Make sure you launch this project first.
 
     To use this mode you can follow by this command below.
+
     ```
     ros2 service call /mode_select fun4_interfaces/srv/SetModePosition "mode: 4"
     ```
+
     After that robot will automatically random the target and move the robot to that target until the robot reach target. Target will random new position.
 
     <p align="center"><img src="images/auto_move.gif" alt="Image Description" /></p>
