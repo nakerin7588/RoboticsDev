@@ -60,43 +60,62 @@ To use this project. You need to have all of prerequisites for this project.
 #### Python packages
 ⚠️  **Warning:**    Make sure you have python version >= 3.6 already.
 *   setuptool
+
     ```
     pip3 install setuptools==59.6.0
     ```
+
 *   numpy
+
     ```
     pip3 install numpy==1.24.1
     ```
+
 *   scipy
+
     ```
     pip3 install scipy==1.8.0
     ```
+
 *   matplotlib
+
     ```
     pip3 install matplotlib==3.5.1
     ```
+
 *   robotics toolbox
+
     ```
     pip3 install roboticstoolbox-python
     ```
+
 #### ROS2 packages
+
 ⚠️  **Warning:**     Make sure you have ROS2 humble already.
+
 *   teleop_twist_keyboard
+
     ```
     sudo apt-get install ros-humble-teleop-twist-keyboard
     ```
 
 ### Installation
+
 Follow the command below to dowload and install package.
 1.  Go to home directory
+
     ```
     cd
     ```
+
 2.  Clone the repository
+
     ```
     git clone https://github.com/nakerin7588/RoboticsDev.git --branch=fun4 & cd RoboticsDev
     ```
+
 3.  Build & Source the packages
+
     ```
     colcon build & source install/setup.bash
     ```
@@ -105,18 +124,25 @@ Follow the command below to dowload and install package.
 
 <!-- USAGE -->
 ## Usage
+
 ⚠️  **Warning:**    Before use this project you need to `source ~/RoboticsDev/install/setup.bash` and `source /opt/ros/humble/setup.bash` everytime that you open new terminal. If you want to make sure that 2 path has been source everytime when open new terminal you can follow the command below and next time you open new terminal .bashrc will source everything you write on that file.
+
 ```
 echo "source ~/RoboticsDev/install/setup.bash" >> ~/.bashrc
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
+
 ### Launch the project
+
 ```
 ros2 launch fun4 robot_bringup.launch.py
 ```
+
 After launch the project rviz2 window will show on your screen with red RRR robot arm like this picture below.
+
 ![alt text](images/rviz_screen_after_launch_project.png)
+
 ### Service call in this project
 1. **Mode select**
     ```
@@ -135,6 +161,27 @@ After launch the project rviz2 window will show on your screen with red RRR robo
     ros2 service call /ik_target fun4_interfaces/srv/SetModePosition "position: {x: <x_pos>, y: <y_pos>, z: <z_pos>}"
     ```
     Change `<x_pos>`, `<x_pos>`, `<x_pos>` to position of axis that you want.
+
+### Teleop_twist_keyboard
+
+```
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+After run that command you will have teleop keyboard on your terminal that can control robot in teleoperation mode.
+
+ <p align="center"><img src="images/teleop_twist_keyboard.png" alt="Image Description" /></p>
+
+This keyboard has main 7 keys to control the robot.
+*   `k` : for stop motion.
+*   `I (left shift + i)` : for apply linear velocity on X-axis (+x)
+*   `< (left shift + ,)` : for apply linear velocity on X-axis (-x)
+*   `J (left shift + ,)` : for apply linear velocity on X-axis (+y)
+*   `L (left shift + ,)` : for apply linear velocity on X-axis (-y)
+*   `t` : for apply linear velocity on X-axis (+z)
+*   `b` : for apply linear velocity on X-axis (-z)
+
+Optional key are `q/z` : for increase/decrease max speeds by 10%
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -287,7 +334,7 @@ This section explains what this or those features do in this project.
 
 5.  **Teleoperation mode**
 
-    This mode has ability to move the robot by using `teleop_twist_keyboard` that can set the velocity and send it to the robot. This mode has 2 sub-mode:
+    This mode has ability to move the robot by using `teleop_twist_keyboard` that can set the velocity and send it to the robot. This mode has 2 sub-modes:
 
     ⚠️  **Warning:** Make sure you launch this project & run teleop_twist_keyboard first.
 
@@ -295,10 +342,72 @@ This section explains what this or those features do in this project.
     *   Velocity that reference from end-effector frame
         In this mode will know that velocity you send to robot will reference from end-effector frame like if you send velocity on X-axis robot will move through the X-axis of end-effector frame like GIF below.
 
+         <p align="center"><img src="images/teleop_eff_move.gif" alt="Image Description" /></p>
 
     *   Velocity that reference from world frame
         In this mode will know that velocity you send to robot will reference from world frame(Base) like if you send velocity on X-axis robot will move through the X-axis of world frame like GIF below.
 
+        <p align="center"><img src="images/teleop_world_move.gif" alt="Image Description" /></p>
+
+    This feature is solve by Differencetial kinematic $\dot{q} = J^{-1}(q) \dot{p}$ and send joint velocity to calculate to joint position in realtime later.You can see the function below.
+
+    ```Python
+    def compute_q_dot(self, joint_angles, ee_velocity, threshold=0.001):
+        '''
+        Compute joint velocity function
+        This function is calculate the joint velocity from this formula below:
+                            q_dot = inv_jacobian(q) * v
+            Let: 
+                q_dot is joint velocity
+                inv_jacobian is inverse of jacobian matrix from current q position (In this program use psedo_inverse form numpy)
+                v is velocity that reference from world frame
+        And also calculate the det of jacobian matrix to check is that pose of manipulator has singularity from this formula below:
+                    w = det(J(q)); if w is near to 0, means that manipulator has singularity
+        '''
+        try:
+            J = self.robot.jacob0(joint_angles)
+            J = J[:3, :3]
+            J_pseudo_inv = np.linalg.pinv(J)
+            joint_velocities = J_pseudo_inv @ ee_velocity
+            J_ = self.robot.jacob0(np.array(joint_angles)+(joint_velocities / self.rate))
+            J_ = J_[:3, :3]
+            w = np.linalg.det(J_)
+            if (-threshold) <= w <= threshold:
+                msg = String()
+                msg.data = "Now robot is at singularity pose"
+                self.teleop_status_pub.publish(msg)
+                return np.array([0.0, 0.0, 0.0])
+            msg = String()
+            msg.data = "Now robot is at normal pose"
+            self.teleop_status_pub.publish(msg)
+            return joint_velocities
+        except Exception as e:
+            self.get_logger().error(f"Compute q dot function has {e}")
+    ```
+
+    Of two sub-modes there are some difference between each other that is input of the function.
+    *   1st mode is 
+
+        ```Python
+        self.joint_velocity = self.compute_q_dot(self.current_joint_angles, self.linear_velo @ self.robot.fkine(self.current_joint_angles).R)
+        ```
+    
+    *   2nd mode is
+
+        ```Python
+        self.joint_velocity = self.compute_q_dot(self.current_joint_angles, self.linear_velo)
+
+        ```
+
+    **At 1st mode there is Rotation matrix to multiply to linear velocity first for map to end-effector frame.**
+
+    If you want to see `teleop status` you can follow by this command below for see the teleop_status topic like terminal 2 at teleoperation sub-modes pictures(both).
+
+    ```
+    ros2 topic echo /teleop_status
+    ```
+
+    <p align="center"><img src="images/teleop_status.png" alt="Image Description" /></p>
 
 6.  **Auto mode**
 
