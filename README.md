@@ -46,44 +46,44 @@ To use this project. You need to have all of prerequisites for this project.
 #### Python packages
 ⚠️  **Warning:**    Make sure you have python version >= 3.6 already.
 *   setuptool
-    ```sh
+    ```
     pip3 install setuptools==59.6.0
     ```
 *   numpy
-    ```sh
+    ```
     pip3 install numpy==1.24.1
     ```
 *   scipy
-    ```sh
+    ```
     pip3 install scipy==1.8.0
     ```
 *   matplotlib
-    ```sh
+    ```
     pip3 install matplotlib==3.5.1
     ```
 *   robotics toolbox
-    ```sh
+    ```
     pip3 install roboticstoolbox-python
     ```
 #### ROS2 packages
 ⚠️  **Warning:**     Make sure you have ROS2 humble already.
 *   teleop_twist_keyboard
-    ```sh
+    ```
     sudo apt-get install ros-humble-teleop-twist-keyboard
     ```
 
 ### Installation
 Follow the command below to dowload and install package.
 1.  Go to home directory
-    ```sh
+    ```
     cd
     ```
 2.  Clone the repository
-    ```sh
+    ```
     git clone https://github.com/nakerin7588/RoboticsDev.git --branch=fun4 & cd RoboticsDev
     ```
 3.  Build & Source the packages
-    ```sh
+    ```
     colcon build & source install/setup.bash
     ```
 
@@ -93,14 +93,14 @@ Follow the command below to dowload and install package.
 ## Usage
 ⚠️  **Warning:**    Before use this project you need to `source ~/RoboticsDev/install/setup.bash` every time that you open new terminal.
 ### Launch the project
-```sh
+```
 ros2 launch fun4 robot_bringup.launch.py
 ```
 After launch the project rviz2 window will show on your screen with red RRR robot arm like this picture below.
 ![alt text](images/rviz_screen_after_launch_project.png)
 ### Service call in this project
 1. Mode select
-    ```sh
+    ```
     ros2 service call /mode_select fun4_interfaces/srv/SetModePosition "mode: <mode>"
     ```
     Change `<mode>` to mode that you want to use such as :
@@ -112,7 +112,7 @@ After launch the project rviz2 window will show on your screen with red RRR robo
 <p align="right">How to use mode will explain in the next section.</p>
 
 2. Inverse kinematic mode target
-    ```sh
+    ```
     ros2 service call /ik_target fun4_interfaces/srv/SetModePosition "position: {x: <x_pos>, y: <y_pos>, z: <z_pos>}"
     ```
     Change `<x_pos>`, `<x_pos>`, `<x_pos>` to position of axis that you want.
