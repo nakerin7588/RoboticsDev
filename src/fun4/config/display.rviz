@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /TF1
         - /Pose1
         - /Pose2
       Splitter Ratio: 0.5
@@ -116,7 +117,7 @@ Visualization Manager:
           Value: true
         link_3:
           Value: true
-      Marker Scale: 1
+      Marker Scale: 0.5
       Name: TF
       Show Arrows: true
       Show Axes: true
@@ -216,25 +217,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 2.683483123779297
+      Distance: 2.2939445972442627
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.34012266993522644
-        Y: 0.14392943680286407
-        Z: 0.38754040002822876
+        X: 0.06352902948856354
+        Y: -0.10788325220346451
+        Z: 0.4088275134563446
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.24039781093597412
+      Pitch: 0.22039783000946045
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.295380115509033
+      Yaw: 2.4653820991516113
     Saved: ~
 Window Geometry:
   Displays:
