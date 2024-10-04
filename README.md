@@ -367,7 +367,7 @@ This section explains what this or those features do in this project.
 
         <p align="center"><img src="images/teleop_world_move.gif" alt="Image Description" /></p>
 
-    This feature is solve by Differencetial kinematic $`\dot{q} = J^{-1}(q) \dot{p}`$ and send joint velocity to calculate to joint position in realtime later.You can see the function below.
+    This feature is solve by Differencetial kinematic $\dot{q} = J^{-1}(q) \dot{p}$ and send joint velocity to calculate to joint position in realtime later.You can see the function below.
 
     ```Python
     def compute_q_dot(self, joint_angles, ee_velocity, threshold=0.001):
