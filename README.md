@@ -117,13 +117,15 @@ Follow the command below to dowload and install package.
 2.  Clone the repository
 
     ```
-    git clone https://github.com/nakerin7588/RoboticsDev.git --branch=fun4 & cd RoboticsDev
+    git clone https://github.com/nakerin7588/RoboticsDev.git --branch=fun4
+    cd RoboticsDev
     ```
 
 3.  Build & Source the packages
 
     ```
-    colcon build & source install/setup.bash
+    colcon build
+    source install/setup.bash
     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -197,10 +199,7 @@ This keyboard has main 7 keys to control the robot.
 Optional key are `q/z` : for increase/decrease max speeds by 10%
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Features
-
-This section explains what this or those features do in this project.
+How to launch this project.
 
 1.  **Show workspace of the robot**
 
@@ -273,6 +272,8 @@ This section explains what this or those features do in this project.
 
     This mode work like idle mode to wait for the command when you launch the project robot will entry to this mode first.
 
+    ⚠️  **Warning:** Make sure you launch this project first.<b align="right">(<a href="#launch-the-project">How to launch this project</a>)</b>
+
     To change the mode when you are in other mode. You can follow this command below.
 
     ```
@@ -285,7 +286,7 @@ This section explains what this or those features do in this project.
 
     This mode has ability to move the robot end-effector to the target position you want by calculate inverse kinematic.
 
-    ⚠️  **Warning:** Make sure you launch this project first.
+    ⚠️  **Warning:** Make sure you launch this project first.<b align="right">(<a href="#launch-the-project">How to launch this project</a>)</b>
 
     To use this mode you can follow by this command below.
 
@@ -354,19 +355,22 @@ This section explains what this or those features do in this project.
 
     This mode has ability to move the robot by using `teleop_twist_keyboard` that can set the velocity and send it to the robot. This mode has 2 sub-modes:
 
-    ⚠️  **Warning:** Make sure you launch this project & run teleop_twist_keyboard first.
+    ⚠️  **Warning:** Make sure you launch this project & run teleop_twist_keyboard first.<b align="right">(<a href="#launch-the-project">How to launch this project</a>)</b><b align="right">(<a href="#teleop_twist_keyboard">How to run teleop_twist_keyboard</a>)</b>
 
 
     *   Velocity that reference from end-effector frame
+        To use this mode you can follow by this command below.
+
+        ```
+        ros2 service call /mode_select fun4_interfaces/srv/SetModePosition "mode: 2"
+        ```
+
         In this mode will know that velocity you send to robot will reference from end-effector frame like if you send velocity on X-axis robot will move through the X-axis of end-effector frame like GIF below.
 
          <p align="center"><img src="images/teleop_eff_move.gif" alt="Image Description" /></p>
 
     *   Velocity that reference from world frame
-        In this mode will know that velocity you send to robot will reference from world frame(Base) like if you send velocity on X-axis robot will move through the X-axis of world frame like GIF below.
-
-        <p align="center"><img src="images/teleop_world_move.gif" alt="Image Description" /></p>
-
+        To use this mode you can follow by this command below.How to launch this project
     This feature is solve by Differencetial kinematic $\dot{q} = J^{-1}(q) \dot{p}$ and send joint velocity to calculate to joint position in realtime later.You can see the function below.
 
     ```Python
@@ -404,7 +408,7 @@ This section explains what this or those features do in this project.
     ```
 
     Of two sub-modes there are some difference between each other that is input of the function.
-    *   1st mode is 
+    *   1st mode is
 
         ```Python
         self.joint_velocity = self.compute_q_dot(self.current_joint_angles, self.linear_velo @ self.robot.fkine(self.current_joint_angles).R)
@@ -414,7 +418,6 @@ This section explains what this or those features do in this project.
 
         ```Python
         self.joint_velocity = self.compute_q_dot(self.current_joint_angles, self.linear_velo)
-
         ```
 
     **At 1st mode there is Rotation matrix to multiply to linear velocity first for map to end-effector frame.**
@@ -429,9 +432,9 @@ This section explains what this or those features do in this project.
 
 6.  **Auto mode**
 
-    This mode is like Inverse kinematic mode that will move the robot end-effector to the target position but this mode will random the target from environment mode and then will send the target to inverse kinematic mode to calculate. **You can see the architecture diagram on the top of this README**
+    This mode is like Inverse kinematic mode that will move the robot end-effector to the target position but this mode will random the target from environment mode and then will send the target to inverse kinematic mode to calculate. **You can see the architecture diagram on the top of this README** <b align="right">(<a href="#system-architecture">System architecture</a>)</b>
     
-    ⚠️  **Warning:** Make sure you launch this project first.
+    ⚠️  **Warning:** Make sure you launch this project first.<b align="right">(<a href="#launch-the-project">How to launch this project</a>)</b>
 
     To use this mode you can follow by this command below.
 
