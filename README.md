@@ -361,7 +361,7 @@ Optional key are `q/z` : for increase/decrease max speeds by 10%
     ⚠️  **Warning:** Make sure you launch this project & run teleop_twist_keyboard first.<b align="right">(<a href="#launch-the-project">How to launch this project</a>)</b><b align="right">(<a href="#teleop_twist_keyboard">How to run teleop_twist_keyboard</a>)</b>
 
 
-    *   Velocity that reference from end-effector frame
+    *   Velocity that reference from end-effector frame<br>
         To use this mode you can follow by this command below.
 
         ```
@@ -372,8 +372,13 @@ Optional key are `q/z` : for increase/decrease max speeds by 10%
 
          <p align="center"><img src="images/teleop_eff_move.gif" alt="Image Description" /></p>
 
-    *   Velocity that reference from world frame
-        To use this mode you can follow by this command below.How to launch this project
+    *   Velocity that reference from world frame<br>
+        To use this mode you can follow by this command below.
+
+        ```
+        ros2 service call /mode_select fun4_interfaces/srv/SetModePosition "mode: 2"
+        ```
+        
     This feature is solve by Differencetial kinematic $\dot{q} = J^{-1}(q) \dot{p}$ and send joint velocity to calculate to joint position in realtime later.You can see the function below.
 
     ```Python
