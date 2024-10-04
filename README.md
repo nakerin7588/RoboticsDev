@@ -302,6 +302,8 @@ How to launch this project.
 
     After run this command the robot on rviz will move to the target and end-effector/target ball will show together.
 
+    **If last target is not reach and you change mode to inverse kinematic mode to bot will move to that target first.**
+
     <p align="center"><img src="images/ik_move.gif" alt="Image Description" /></p>
 
     <p align="center"><img src="images/ik_move_terminal.gif" alt="Image Description" /></p>
