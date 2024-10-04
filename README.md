@@ -199,7 +199,8 @@ This keyboard has main 7 keys to control the robot.
 Optional key are `q/z` : for increase/decrease max speeds by 10%
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-How to launch this project.
+
+## Features
 
 1.  **Show workspace of the robot**
 
