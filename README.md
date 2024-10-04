@@ -378,6 +378,10 @@ Optional key are `q/z` : for increase/decrease max speeds by 10%
         ```
         ros2 service call /mode_select fun4_interfaces/srv/SetModePosition "mode: 2"
         ```
+
+        In this mode will know that velocity you send to robot will reference from world frame like if you send velocity on X-axis robot will move through the X-axis of world frame like GIF below.
+        
+        <p align="center"><img src="images/teleop_world_move.gif" alt="Image Description" /></p>
         
     This feature is solve by Differencetial kinematic $\dot{q} = J^{-1}(q) \dot{p}$ and send joint velocity to calculate to joint position in realtime later.You can see the function below.
 
